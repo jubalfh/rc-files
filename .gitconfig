@@ -1,0 +1,56 @@
+[user]
+	name = Miroslaw Baran
+[core]
+	excludesfile = ~/.gitignore
+[cola]
+	fontdiff = Ubuntu Mono,11,-1,5,50,0,0,0,0,0
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[merge]
+	tool = meld
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[alias]
+	branch-name = !git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)
+	remote-branch-name = "!rbn() { \
+	    full_ref=\"$(git rev-parse --symbolic-full-name --verify HEAD@{upstream})\"; \
+	    remote=\"$(git remote-name)\"; \
+	    echo \"${full_ref##refs/remotes/$remote/}\"; \
+	  }; rbn"
+	remote-name = !git config branch.$(git branch-name).remote
+	branches = branch -a
+	id = rev-parse
+	pull = pull --ff-only
+	merge = merge --no-ff
+	up = merge --ff-only
+	update = merge --ff-only
+	in = !git incoming
+	out = !git outgoing
+	incoming = "!inc() { \
+	    remote=${1:-$(git remote-name)}; \
+	    branch=${2:-$(git remote-branch-name)}; \
+	    git fetch -q $remote && git log HEAD..${remote}/${branch}; \
+	  }; inc"
+	outgoing = "!out() { \
+	    remote=${1:-$(git remote-name)}; \
+	    branch=${2:-$(git remote-branch-name)}; \
+	    git fetch -q $remote && git log ${remote}/${branch}..HEAD; \
+	  }; out"
+	ci = commit
+	co = checkout
+	st = status -s -b -u
+	gll = log --color=always --all --graph --topo-order --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+	root = !pwd -P
+	sm = submodule
+	pullsub = submodule foreach "git pull origin master"
+	unstage = reset HEAD --
+
+[gui]
+	fontui = -family Ubuntu -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Ubuntu Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+[push]
+	default = simple

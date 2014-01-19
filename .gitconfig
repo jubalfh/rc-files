@@ -5,9 +5,9 @@
 [cola]
 	fontdiff = Ubuntu Mono,11,-1,5,50,0,0,0,0,0
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+	diff = always
+	status = always
+	branch = always
 [merge]
 	tool = meld
 [diff]
@@ -33,12 +33,12 @@
 	incoming = "!inc() { \
 	    remote=${1:-$(git remote-name)}; \
 	    branch=${2:-$(git remote-branch-name)}; \
-	    git fetch -q $remote && git log HEAD..${remote}/${branch}; \
+	    git fetch -q $remote && git --no-pager log HEAD..${remote}/${branch}; \
 	  }; inc"
 	outgoing = "!out() { \
 	    remote=${1:-$(git remote-name)}; \
 	    branch=${2:-$(git remote-branch-name)}; \
-	    git fetch -q $remote && git log ${remote}/${branch}..HEAD; \
+	    git fetch -q $remote && git --no-pager log ${remote}/${branch}..HEAD; \
 	  }; out"
 	ci = commit
 	co = checkout

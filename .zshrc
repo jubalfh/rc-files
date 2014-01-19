@@ -61,7 +61,6 @@ update_session_environment() {
 add-zsh-hook precmd update_session_environment
 
 # environment variables
-
 export PATH="$(cleanup_path ${path_components[@]})"
 
 export HISTFILE=~/.zsh_history
@@ -107,7 +106,6 @@ bindkey "" vi-beginning-of-line
 bindkey "" vi-end-of-line 
 
 # aliases
-
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors ~/.dircolors)" || eval "$(dircolors)"
     alias ls='ls --color=auto'
@@ -119,4 +117,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# pager settings
 which lesspipe > /dev/null && eval $(lesspipe)
+export LESS="-R -F -X"

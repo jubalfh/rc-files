@@ -10,8 +10,8 @@
 
 _prompt_vcs_systems=(hg git svn)
 _prompt_vcs_info="$FG[242]"
-_prompt_success="$FG[034]▍$FX[reset]"
-_prompt_failure="$FG[160]▍$FX[reset]"
+_prompt_success="$FG[034]▶$FX[reset]"
+_prompt_failure="$FG[160]◀$FX[reset]"
 _prompt_lbracket="$FG[006][$FX[reset]"
 _prompt_rbracket="$FG[006]]$FX[reset]"
 _prompt_local="$FG[014]"
@@ -38,8 +38,8 @@ add-zsh-hook precmd vcs_info
 # Set vcs_info parameters.
 zstyle ':vcs_info:*' enable ${_prompt_vcs_systems}
 zstyle ':vcs_info:*:*' check-for-changes true # Can be slow on big repos.
-zstyle ':vcs_info:*:*' unstagedstr '⁎'
-zstyle ':vcs_info:*:*' stagedstr '⁑'
+zstyle ':vcs_info:*:*' unstagedstr '△'
+zstyle ':vcs_info:*:*' stagedstr '▲'
 zstyle ':vcs_info:hg:*' get-mq true
 zstyle ':vcs_info:hg:*' get-bookmarks true
 zstyle ':vcs_info:*:*' actionformats "%S" "(%s)/%r at %b %u%c (%a)"

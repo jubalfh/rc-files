@@ -1,3 +1,5 @@
 #!/bin/bash
 
-.git/hooks/ctags >/dev/null 2>&1 &
+: ${GIT_DIR:=.git}
+
+${GIT_DIR}/hooks/ctags >/dev/null 2>&1 &

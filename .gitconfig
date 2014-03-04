@@ -48,7 +48,7 @@
 	sm = submodule
 	pullsub = submodule foreach "git pull origin master"
 	unstage = reset HEAD --
-	ctags = !.git/hooks/ctags
+    ctags = "!: ${GIT_DIR:=.git} && ${GIT_DIR}/hooks/ctags"
 
 [gui]
 	fontui = -family Ubuntu -size 10 -weight normal -slant roman -underline 0 -overstrike 0

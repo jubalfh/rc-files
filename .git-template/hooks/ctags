@@ -2,6 +2,8 @@
 
 set -e
 
-trap "rm -f .git/tags.$$" EXIT
-ctags --tag-relative -Rf.git/tags.$$ --exclude=.git
-mv .git/tags.$$ .git/tags
+: ${GIT_DIR:=.git}
+
+trap "rm -f ${GIT_DIR}/tags.$$" EXIT
+ctags --tag-relative -Rf${GIT_DIR}/tags.$$ --exclude=${GIT_DIR}
+mv ${GIT_DIR}/tags.$$ ${GIT_DIR}/tags

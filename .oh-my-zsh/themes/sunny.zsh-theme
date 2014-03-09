@@ -43,6 +43,6 @@ function () {
 
     # prompt
     PROMPT=${(F)p_line}
+    RPROMPT='%F{242}${vcs_info_msg_1_}%F{default}'
 }
 
-RPROMPT='%F{242}${vcs_info_msg_1_}%F{default}'

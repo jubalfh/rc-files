@@ -79,6 +79,8 @@ export IRCUMODE="+iw-s"
 export VISUAL=vim
 export EDITOR=vim
 
+export MC_SKIN=$HOME/.config/mc/solarized.ini
+
 # shell settings
 setopt appendhistory
 setopt autocd
@@ -116,6 +118,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+alias rx="exec $SHELL"
 
 # pager settings
 which lesspipe > /dev/null && eval $(lesspipe)

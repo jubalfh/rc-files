@@ -35,14 +35,14 @@ path_components=(/usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games "${HOME}/bi
 
 # functions
 cleanup_path() {
-    local pathcomp
-    local path
-    for pathcomp in "$@"; do
-        if [[ -d "$pathcomp" ]]; then
-            path="${path}${path:+:}${pathcomp}"
+    local dir
+    local -a path
+    for dir in "$@"; do
+        if [[ -d "${dir}" ]]; then
+            path+="${dir}"
         fi
     done
-    echo "$path"
+    echo "${(j.:.)path}"
 }
 
 update_session_environment() {

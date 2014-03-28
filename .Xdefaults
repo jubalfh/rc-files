@@ -73,15 +73,16 @@ xterm*visualbell: true
 xterm*bellIsUrgent: true
 xterm*dynamicColors: true
 
-xterm*.faceName: DejaVu Sans Mono
-xterm*.faceSize: 13
+!xterm*.faceName: DejaVu Sans Mono
+xterm*.faceName: PragmataPro
+xterm*.faceSize: 14
 
 xterm*faceSize1: 6
 xterm*faceSize2: 9
 xterm*faceSize3: 11
-xterm*faceSize4: 13
-xterm*faceSize5: 15
-xterm*faceSize6: 18
+xterm*faceSize4: 14
+xterm*faceSize5: 18
+xterm*faceSize6: 21
 
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 xterm*on2Clicks: regex [[:alpha:]]+:(\/\/)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+

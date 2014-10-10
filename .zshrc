@@ -108,7 +108,7 @@ bindkey "" vi-beginning-of-line
 bindkey "" vi-end-of-line 
 
 # aliases
-if [ -x /usr/bin/dircolors ]; then
+if [[ -x /usr/bin/dircolors ]]; then
     test -r ~/.dircolors && eval "$(dircolors ~/.dircolors)" || eval "$(dircolors)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
@@ -122,5 +122,11 @@ fi
 alias rx="exec $SHELL"
 
 # pager settings
-which lesspipe > /dev/null && eval $(lesspipe)
+which lesspipe >/dev/null 2>&1 && eval $(lesspipe)
 export LESS="-R -F -X"
+
+# local changes
+
+if [[ -f "$HOME/.zshrc.local" ]]; then
+    source "$HOME/.zshrc.local"
+fi

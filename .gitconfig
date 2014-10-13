@@ -53,7 +53,5 @@
 [gui]
 	fontui = -family Ubuntu -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 	fontdiff = -family \"Ubuntu Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
-[push]
-	default = simple
 [init]
 	templatedir = ~/.git-template

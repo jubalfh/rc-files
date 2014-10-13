@@ -15,8 +15,11 @@ export PROMPT_DIRTRIM=6
 
 shopt -s checkwinsize
 shopt -s extglob
-shopt -s globstar
 shopt -s histappend
+
+if [[ $BASH_VERSION =~ ^4 ]]; then
+    shopt -s globstar
+fi
 
 export PROMPT_FMT='[\u@\h] [\w]\n ($(ttyname))$ '
 case "$TERM" in
@@ -53,4 +56,4 @@ if [ -f ~/.environment ]; then
     . ~/.environment
 fi
 
-which lesspipe > /dev/null && eval $(lesspipe)
+which lesspipe >/dev/null 2>&1 && eval $(lesspipe)

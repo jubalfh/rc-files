@@ -31,7 +31,8 @@ plugins=(vi-mode python mosh colorize jira)
 
 source $ZSH/oh-my-zsh.sh
 
-path_components=(/usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games "${HOME}/bin")
+path_components=(/usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
+                 "${HOME}/bin" "${HOME}/.rvm/bin")
 
 # functions
 cleanup_path() {

@@ -35,7 +35,7 @@ function () {
     fi
     p_elem+='%F{006}]%F{default}'
     p_elem+=' '
-    p_elem+='%F{006}[%F{default}%F{014}%6~%F{default}%F{006}]%F{default}'
+    p_elem+='%F{006}[%F{default}%F{014}${PWD/#$HOME/~}%F{default}%F{006}]%F{default}'
     p_line+=${(j::)p_elem}
 
     # second line

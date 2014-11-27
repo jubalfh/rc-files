@@ -84,12 +84,15 @@ xterm*faceSize4: 14
 xterm*faceSize5: 18
 xterm*faceSize6: 21
 
+xterm*scaleHeight: 1.0
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-xterm*on2Clicks: regex [[:alpha:]]+:(\/\/)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
-xterm*on3Clicks: line
-xterm*VT100*geometry: 110x40
+xterm*on2Clicks: word
+xterm*on3Clicks: regex [[:alpha:]]+:(\/\/)?([[:alnum:]&!#+,./=?@_~-])+
+xterm*on4Clicks: line
+xterm*selectToClipboard: true
+xterm*VT100*geometry: 110x35
 xterm*VT100*translations: #override \n\
-                 !Ctrl <Btn1Down>: exec-formatted("xdg-open '%t'", PRIMARY)\n\
+                 !Ctrl <Btn1Down>: exec-formatted("xdg-open '%t'", CLIPBOARD)\n\
                  !Ctrl <Btn1Down>:ignore() \n\
             !Lock Ctrl <Btn1Down>:ignore() \n\
   !Lock Ctrl @Num_Lock <Btn1Down>:ignore() \n\

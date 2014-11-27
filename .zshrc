@@ -27,7 +27,7 @@ DISABLE_AUTO_UPDATE="true"
 # in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode python mosh colorize jira)
+plugins=(vi-mode python mosh colorize jira safe-paste)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -1,5 +1,7 @@
 "1.1
 
+set guioptions+=T
+
 loadplugins '\.(js|penta)$'
 group user
 

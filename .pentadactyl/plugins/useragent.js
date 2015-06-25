@@ -1,7 +1,7 @@
 "use strict";
 var INFO =
 ["plugin", { name: "useragent",
-             version: "0.2",
+             version: "0.3",
              href: "http://dactyl.sf.net/pentadactyl/plugins#useragent-plugin",
              summary: "User Agent Switcher",
              xmlns: "dactyl" },
@@ -115,13 +115,15 @@ group.options.add(["useragent", "ua"],
             let ua = useragents[value] ||
                 (value == "default" ? UserAgent("default")
                                     : UserAgent("", value));
-            for (let opt in values(opts))
+            for (let opt of values(opts)) {
                 if (ua[opt.name])
                     prefs.safeSet(opt.pref, ua[opt.name], "See the 'useragent' option");
                 else
                     prefs.safeReset(opt.pref, "See the 'useragent' option");
+            }
             return value;
-        }
+        },
+        validator: function () true
     });
 
 group.commands.add(["useragent", "ua"],
@@ -144,11 +146,11 @@ group.commands.add(["useragent", "ua"],
                             "\u00a0"),
                         ")"]]
                  ]
-                 for (ua in values(useragents))
+                 for (ua of values(useragents))
                  if (!args[0] || ua.name.indexOf(args[0]) >= 0)]));
         else {
             dactyl.assert(args.bang || !Set.has(useragents, args[0]),
-                          "Useragent " + args[0].quote() + " already exists");
+                          "Useragent " + JSON.stringify(args[0]) + " already exists");
             useragents[args[0]] = UserAgent.fromArray(
                 args.concat(opts.slice(1).map(
                     function (opt) args[opt.names[0]])));
@@ -161,7 +163,7 @@ group.commands.add(["useragent", "ua"],
 
             if (args.completeArg == 1)
                 context.completions = [[navigator.userAgent, "Default"]].concat(
-                    [[v.useragent, k] for ([k, v] in Iterator(useragents))]);
+                    [[v.useragent, k] for ([k, v] of iter(useragents))]);
         },
         literal: 1,
         options: opts.slice(1).map(function (opt) ({
@@ -183,11 +185,11 @@ group.commands.add(["useragent", "ua"],
                     literalArg: ua.useragent,
                     options: array(
                         [opt.names[0], ua[opt.name]]
-                        for (opt in values(opts.slice(1)))
+                        for (opt of values(opts.slice(1)))
                         if (ua[opt.name] != null)
                     ).toObject()
                 }
-                for (ua in values(useragents)) if (ua.userset)
+                for (ua of values(useragents)) if (ua.userset)
             ]
         }
     }, true);

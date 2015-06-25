@@ -3,24 +3,24 @@
 [core]
 	excludesfile = ~/.gitignore
 [cola]
-	fontdiff = Ubuntu Mono,11,-1,5,50,0,0,0,0,0
+	fontdiff = Fira Mono,11,-1,5,50,0,0,0,0,0
 [color]
 	diff = always
 	status = always
 	branch = always
 [merge]
-	tool = meld
+	tool = kdiff3
 [diff]
-	tool = meld
+	tool = kdiff3
 [difftool]
 	prompt = false
 [alias]
 	branch-name = !git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)
-	remote-branch-name = "!rbn() { \
+	remote-branch-name = "!_() { \
 	    full_ref=\"$(git rev-parse --symbolic-full-name --verify HEAD@{upstream})\"; \
 	    remote=\"$(git remote-name)\"; \
 	    echo \"${full_ref##refs/remotes/$remote/}\"; \
-	  }; rbn"
+	  }; _"
 	remote-name = !git config branch.$(git branch-name).remote
 	branches = branch -a
 	id = rev-parse
@@ -30,16 +30,16 @@
 	update = merge --ff-only
 	in = !git incoming
 	out = !git outgoing
-	incoming = "!inc() { \
+	incoming = "!_() { \
 	    remote=${1:-$(git remote-name)}; \
 	    branch=${2:-$(git remote-branch-name)}; \
 	    git fetch -q $remote && git --no-pager log HEAD..${remote}/${branch}; \
-	  }; inc"
-	outgoing = "!out() { \
+	  }; _"
+	outgoing = "!_() { \
 	    remote=${1:-$(git remote-name)}; \
 	    branch=${2:-$(git remote-branch-name)}; \
 	    git fetch -q $remote && git --no-pager log ${remote}/${branch}..HEAD; \
-	  }; out"
+	  }; _"
 	ci = commit
 	co = checkout
 	st = status -s -b
@@ -49,6 +49,7 @@
 	pullsub = submodule foreach "git pull origin master"
 	unstage = reset HEAD --
 	ctags = "!: ${GIT_DIR:=.git} && ${GIT_DIR}/hooks/ctags"
+	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git diff-index --quiet HEAD; s=$?; [ $s != 0 ] && git stash save \"tmp stash from stash-rename\"; git stash apply $rev && shift && git stash save \"$@\" && [ $s != 0 ] && git stash pop stash@{1}; }; _"
 
 [gui]
 	fontui = -family Ubuntu -size 10 -weight normal -slant roman -underline 0 -overstrike 0

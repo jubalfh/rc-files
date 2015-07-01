@@ -27,12 +27,12 @@ DISABLE_AUTO_UPDATE="true"
 # in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode python mosh colorize jira git-flow-avh history-substring-search)
+plugins=(vi-mode python mosh colorize git-flow-avh history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
 path_components=(
-    $(find -L /usr/local/opt -type d -regex '.*/gnubin')
+    $(find -L /usr/local/opt -type d -regex '.*/gnubin' 2>/dev/null)
     /usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
     "${HOME}/bin" "${HOME}/.rvm/bin"
 )

@@ -32,7 +32,7 @@ plugins=(vi-mode python mosh colorize git-flow-avh history-substring-search)
 source $ZSH/oh-my-zsh.sh
 
 path_components=(
-    $(find -L /usr/local/opt -type d -regex '.*/gnubin' 2>/dev/null)
+    /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
     "${HOME}/bin" "${HOME}/.rvm/bin"
 )
@@ -48,21 +48,6 @@ cleanup_path() {
     done
     echo "${(j.:.)path}"
 }
-
-update_session_environment() {
-    local var
-    local value
-    if [[ -n "$TMUX" ]]; then
-        while IFS="=" read var value; do
-            if [[ -n "${var/-*/}" ]]; then
-                export $var="$value"
-            fi
-        done < <(tmux show-environment)
-    fi
-}
-
-# hooks
-add-zsh-hook precmd update_session_environment
 
 # environment variables
 export PATH="$(cleanup_path ${path_components[@]})"

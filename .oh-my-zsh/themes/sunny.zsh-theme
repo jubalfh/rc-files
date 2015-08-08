@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh
-# ------------------------------------------------------------------------------
-# ZSH prompt theme:
-# – made with solarized theme in mind
-# – vcs information in right prompt
 
-# prerequisites
+# sunny - simple zsh theme with solarized in mind and vcs_info support
+
+# (c) 2014-2015 Miroslaw Baran <miroslaw+p+varia@makabra.org>
+# this script is free software under 3-clause BSD licence
+
 setopt promptsubst
 autoload -U add-zsh-hook
 autoload -Uz vcs_info
@@ -19,7 +19,6 @@ zstyle ':vcs_info:*:*' actionformats "%S" "(%s)/%r at %b %u%c (%a)"
 zstyle ':vcs_info:*:*' formats "%S" "(%s)/%r at %b %u%c"
 zstyle ':vcs_info:*:*' nvcsformats "%~" ""
 
-# Add hook for calling vcs_info before each command.
 add-zsh-hook precmd vcs_info
 
 function () {
@@ -41,8 +40,7 @@ function () {
     # second line
     p_line+='%(0?.%F{034}▶%F{default}.%F{160}◀%F{default})(%y)%(!.#.») '
 
-    # prompt
+    # prompts
     PROMPT=${(F)p_line}
     RPROMPT='%F{242}${vcs_info_msg_1_}%F{default}'
 }
-

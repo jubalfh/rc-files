@@ -27,38 +27,62 @@ Xft.rgba: rgb
 #define S_cyan #2aa198
 #define S_green #859900
 
-xterm*background: S_base03
-xterm*foreground: S_base00
-xterm*fading: 40
-xterm*fadeColor: S_base03
-xterm*cursorColor: S_base1
-xterm*pointerColorBackground:S_base01
-xterm*pointerColorForeground:S_base1
+!! gruvbox dark
+!
+! hard contrast:
+! #define gBackground #1d2021
+#define gBackground  #282828
+! soft contrast:
+! #define gBackground #32302f
+#define gForeground  #ebdbb2
+! Black + DarkGrey
+#define gBlack       #282828
+#define gDarkGrey    #928374
+! DarkRed + Red
+#define gDarkRed     #cc241d
+#define gRed         #fb4934
+! DarkGreen + Green
+#define gDarkGreen   #98971a
+#define gGreen       #b8bb26
+! DarkYellow + Yellow
+#define gDarkYellow  #d79921
+#define gYellow      #fabd2f
+! DarkBlue + Blue
+#define gDarkBlue    #458588
+#define gBlue        #83a598
+! DarkMagenta + Magenta
+#define gDarkMagenta #b16286
+#define gMagenta     #d3869b
+! DarkCyan + Cyan
+#define gDarkCyan    #689d6a
+#define gCyan        #8ec07c
+! LightGrey + White
+#define gLightGrey   #a89984
+#define gWhite       #ebdbb2
 
-!! black dark/light
-xterm*color0: S_base02
-xterm*color8: S_base03
-!! red dark/light
-xterm*color1: S_red
-xterm*color9: S_orange
-!! green dark/light
-xterm*color2: S_green
-xterm*color10: S_base01
-!! yellow dark/light
-xterm*color3: S_yellow
-xterm*color11: S_base00
-!! blue dark/light
-xterm*color4: S_blue
-xterm*color12: S_base0
-!! magenta dark/light
-xterm*color5: S_magenta
-xterm*color13: S_violet
-!! cyan dark/light
-xterm*color6: S_cyan
-xterm*color14: S_base1
-!! white dark/light
-xterm*color7: S_base2
-xterm*color15: S_base3
+
+xterm*color0:  gBlack
+xterm*color8:  gDarkGrey
+xterm*color1:  gDarkRed
+xterm*color9:  gRed
+xterm*color2:  gDarkGreen
+xterm*color10: gGreen
+xterm*color3:  gDarkYellow
+xterm*color11: gYellow
+xterm*color4:  gDarkBlue
+xterm*color12: gBlue
+xterm*color5:  gDarkMagenta
+xterm*color13: gMagenta
+xterm*color6:  gDarkCyan
+xterm*color14: gCyan
+xterm*color7:  gLightGrey
+xterm*color15: gWhite
+
+xterm*background: gBackground
+xterm*foreground: gForeground
+xterm*fading: 40
+xterm*fadeColor: gDarkGrey
+xterm*cursorColor: gDarkGreen
 
 !! xterm – the rest
 xterm*utf8: 2
@@ -73,7 +97,6 @@ xterm*visualbell: true
 xterm*bellIsUrgent: true
 xterm*dynamicColors: true
 
-!xterm*.faceName: DejaVu Sans Mono
 xterm*.faceName: PragmataPro
 xterm*.faceSize: 14
 

@@ -89,6 +89,7 @@ xterm*utf8: 2
 xterm*.termName: xterm-256color
 xterm*locale: true
 xterm*eightBitInput: false
+xterm*activeIcon: true
 
 xterm*saveLines: 9000
 xterm*scrollBar: false

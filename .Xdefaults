@@ -97,7 +97,7 @@ xterm*visualbell: true
 xterm*bellIsUrgent: true
 xterm*dynamicColors: true
 
-xterm*.faceName: PragmataPro
+xterm*.faceName: PragmataProMono
 xterm*.faceSize: 14
 
 xterm*faceSize1: 6

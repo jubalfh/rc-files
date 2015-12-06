@@ -108,6 +108,7 @@ xterm*faceSize4: 14
 xterm*faceSize5: 18
 xterm*faceSize6: 21
 
+xterm*fullscreen: never
 xterm*scaleHeight: 1.0
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 xterm*on2Clicks: word

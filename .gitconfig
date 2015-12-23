@@ -9,9 +9,9 @@
 	status = always
 	branch = always
 [merge]
-	tool = kdiff3
+	tool = bc3
 [diff]
-	tool = kdiff3
+	tool = bc3
 [difftool]
 	prompt = false
 [alias]
@@ -62,6 +62,10 @@
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[difftool "bc3"]
+	trustExitCode = true
+[mergetool "bc3"]
 	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean %f

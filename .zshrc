@@ -27,9 +27,15 @@ DISABLE_AUTO_UPDATE="true"
 # in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(vi-mode python mosh colorize git-flow-avh history-substring-search)
-
-source $ZSH/oh-my-zsh.sh
+plugins=(
+    vi-mode
+    python
+    virtualenvwrapper
+    mosh
+    colorize
+    git-flow-avh
+    history-substring-search
+)
 
 path_components=(
     /usr/local/opt/coreutils/libexec/gnubin
@@ -118,4 +124,9 @@ export LESS="-R -F -X"
 
 if [[ -f "$HOME/.zshrc.local" ]]; then
     source "$HOME/.zshrc.local"
+fi
+
+# and oh-my-zsh on top of them
+if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+    source $ZSH/oh-my-zsh.sh
 fi

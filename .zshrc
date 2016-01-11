@@ -75,6 +75,17 @@ export VISUAL=vim
 export EDITOR=vim
 
 export MC_SKIN=$HOME/.config/mc/solarized.ini
+export WORKON_HOME="$HOME/.virtualenvs"
+
+# get the oh-my-zsh baseline
+if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+    source $ZSH/oh-my-zsh.sh
+fi
+
+# and local changes
+if [[ -f "$HOME/.zshrc.local" ]]; then
+    source "$HOME/.zshrc.local"
+fi
 
 # shell settings
 setopt appendhistory
@@ -120,13 +131,3 @@ alias rx="exec $SHELL"
 which lesspipe >/dev/null 2>&1 && eval $(lesspipe)
 export LESS="-R -F -X"
 
-# local changes
-
-if [[ -f "$HOME/.zshrc.local" ]]; then
-    source "$HOME/.zshrc.local"
-fi
-
-# and oh-my-zsh on top of them
-if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
-    source $ZSH/oh-my-zsh.sh
-fi

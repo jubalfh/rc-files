@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH="${HOME}/.local/share/oh-my-zsh"
 
 # Theme settings. Optionally, if you set this to "random",
 # it'll load a random theme each time that oh-my-zsh is

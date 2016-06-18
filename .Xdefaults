@@ -1,9 +1,9 @@
 !! proper Xft settings, praised be Powers That Be
-Xft.dpi: 96
+!! Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
 !Xft.hintstyle: hintslight
-Xft.hintstyle: hintsmedium
+Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
@@ -61,62 +61,64 @@ Xft.rgba: rgb
 #define gWhite       #ebdbb2
 
 
-xterm*color0:  gBlack
-xterm*color8:  gDarkGrey
-xterm*color1:  gDarkRed
-xterm*color9:  gRed
-xterm*color2:  gDarkGreen
-xterm*color10: gGreen
-xterm*color3:  gDarkYellow
-xterm*color11: gYellow
-xterm*color4:  gDarkBlue
-xterm*color12: gBlue
-xterm*color5:  gDarkMagenta
-xterm*color13: gMagenta
-xterm*color6:  gDarkCyan
-xterm*color14: gCyan
-xterm*color7:  gLightGrey
-xterm*color15: gWhite
+xterm*.color0:  gBlack
+xterm*.color8:  gDarkGrey
+xterm*.color1:  gDarkRed
+xterm*.color9:  gRed
+xterm*.color2:  gDarkGreen
+xterm*.color10: gGreen
+xterm*.color3:  gDarkYellow
+xterm*.color11: gYellow
+xterm*.color4:  gDarkBlue
+xterm*.color12: gBlue
+xterm*.color5:  gDarkMagenta
+xterm*.color13: gMagenta
+xterm*.color6:  gDarkCyan
+xterm*.color14: gCyan
+xterm*.color7:  gLightGrey
+xterm*.color15: gWhite
 
-xterm*background: gBackground
-xterm*foreground: gForeground
-xterm*fading: 40
-xterm*fadeColor: gDarkGrey
-xterm*cursorColor: gDarkGreen
+xterm*.background: gBackground
+xterm*.foreground: gForeground
+xterm*.fading: 40
+xterm*.fadeColor: gDarkGrey
+xterm*.cursorColor: gDarkGreen
 
 !! xterm – the rest
-xterm*utf8: 2
+xterm*.utf8: always
+xterm*.utf8Fonts: always
 xterm*.termName: xterm-256color
-xterm*locale: true
-xterm*eightBitInput: false
-xterm*activeIcon: true
+xterm*.locale: true
+xterm*.eightBitInput: false
+xterm*.activeIcon: true
 
-xterm*saveLines: 9000
-xterm*scrollBar: false
-xterm*scrollKey: true
-xterm*visualbell: true
-xterm*bellIsUrgent: true
-xterm*dynamicColors: true
+xterm*.saveLines: 9000
+xterm*.scrollBar: false
+xterm*.scrollKey: true
+xterm*.visualbell: true
+xterm*.bellIsUrgent: true
+xterm*.dynamicColors: true
 
-xterm*.faceName: PragmataProMono
-xterm*.faceSize: 14
+xterm*.renderFont: true
+xterm*.faceName: PragmataPro Mono
+xterm*.faceSize: 15
 
-xterm*faceSize1: 6
-xterm*faceSize2: 9
-xterm*faceSize3: 11
-xterm*faceSize4: 14
-xterm*faceSize5: 18
-xterm*faceSize6: 21
+xterm*.faceSize1: 6
+xterm*.faceSize2: 9
+xterm*.faceSize3: 11
+xterm*.faceSize4: 14
+xterm*.faceSize5: 18
+xterm*.faceSize6: 21
 
-xterm*fullscreen: never
-xterm*scaleHeight: 1.0
-xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-xterm*on2Clicks: word
-xterm*on3Clicks: regex [[:alpha:]]+:(\/\/)?([[:alnum:]&!#+,./=?@_~-])+
-xterm*on4Clicks: line
-xterm*selectToClipboard: true
-xterm*VT100*geometry: 110x35
-xterm*VT100*translations: #override \n\
+xterm*.fullscreen: never
+! xterm*.scaleHeight: 1.0
+xterm*.charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+xterm*.on2Clicks: word
+xterm*.on3Clicks: regex [[:alpha:]]+:(\/\/)?([[:alnum:]&!#+,./=?@_~-])+
+xterm*.on4Clicks: line
+xterm*.selectToClipboard: true
+xterm*.VT100*geometry: 110x35
+xterm*.VT100*translations: #override \n\
                  !Ctrl <Btn1Down>: exec-formatted("xdg-open '%t'", CLIPBOARD)\n\
                  !Ctrl <Btn1Down>:ignore() \n\
             !Lock Ctrl <Btn1Down>:ignore() \n\
@@ -130,3 +132,46 @@ xterm*VT100*translations: #override \n\
             !Lock Ctrl <Btn3Down>:popup-menu(vtMenu) \n\
   !Lock Ctrl @Num_Lock <Btn3Down>:popup-menu(vtMenu) \n\
        !@Num_Lock Ctrl <Btn3Down>:popup-menu(vtMenu)
+
+! rxvt
+Rxvt*.color0:  gBlack
+Rxvt*.color8:  gDarkGrey
+Rxvt*.color1:  gDarkRed
+Rxvt*.color9:  gRed
+Rxvt*.color2:  gDarkGreen
+Rxvt*.color10: gGreen
+Rxvt*.color3:  gDarkYellow
+Rxvt*.color11: gYellow
+Rxvt*.color4:  gDarkBlue
+Rxvt*.color12: gBlue
+Rxvt*.color5:  gDarkMagenta
+Rxvt*.color13: gMagenta
+Rxvt*.color6:  gDarkCyan
+Rxvt*.color14: gCyan
+Rxvt*.color7:  gLightGrey
+Rxvt*.color15: gWhite
+Rxvt*.background: gBackground
+Rxvt*.borderColor: gBackground
+Rxvt*.foreground: gForeground
+Rxvt*.fading: 40
+Rxvt*.fadeColor: gDarkGrey
+Rxvt*.cursorcolor: gDarkGreen
+
+Rxvt*.cursorBlink: false
+Rxvt*.scrollBar: false
+Rxvt*.depth: 32
+Rxvt*.internalBorder: 1
+Rxvt*.font: xft:PragmataPro Mono:size=15
+Rxvt*.boldfont: xft:PragmataPro Mono:style=bold
+Rxvt*.italicfont: xft:PragmataPro Mono:style=italic
+
+Rxvt*.letterSpace: -2
+Rxvt*.termName: xterm-256color
+Rxvt*.geometry: 110x35
+Rxvt*.iconName: Terminal
+Rxvt*iconFile: /usr/share/icons/papirus/symbolic/apps/utilities-terminal-symbolic.svg
+
+Rxvt*.loginShell: true
+Rxvt*.perl-ext-common: default,selection-to-clipboard,matcher
+Rxvt*.matcher.urlLauncher: xdg-open
+Rxvt*.matcher.button: C-1

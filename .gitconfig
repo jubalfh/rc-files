@@ -12,6 +12,7 @@
 	tool = bc3
 [diff]
 	tool = bc3
+	compactionHeuristic = true
 [difftool]
 	prompt = false
 [alias]

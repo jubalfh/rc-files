@@ -1,20 +1,24 @@
 [user]
 	name = Miroslaw Baran
+
 [core]
 	excludesfile = ~/.gitignore
-[cola]
-	fontdiff = Fira Mono,11,-1,5,50,0,0,0,0,0
+
 [color]
 	diff = always
 	status = always
 	branch = always
+
 [merge]
 	tool = bc3
+
 [diff]
 	tool = bc3
 	compactionHeuristic = true
+
 [difftool]
 	prompt = false
+
 [alias]
 	branch-name = !git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)
 	remote-branch-name = "!_() { \
@@ -56,18 +60,16 @@
 [gui]
 	fontui = -family Ubuntu -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 	fontdiff = -family \"Ubuntu Mono\" -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+
 [init]
 	templatedir = ~/.git-template
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+
 [difftool "bc3"]
 	trustExitCode = true
+
 [mergetool "bc3"]
 	trustExitCode = true
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

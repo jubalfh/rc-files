@@ -160,7 +160,7 @@ Rxvt*.cursorcolor: gDarkGreen
 Rxvt*.cursorBlink: false
 Rxvt*.scrollBar: false
 Rxvt*.depth: 32
-Rxvt*.internalBorder: 1
+Rxvt*.internalBorder: 5
 Rxvt*.font: xft:PragmataPro Mono:size=15
 Rxvt*.boldfont: xft:PragmataPro Mono:style=bold
 Rxvt*.italicfont: xft:PragmataPro Mono:style=italic
@@ -172,6 +172,9 @@ Rxvt*.iconName: Terminal
 Rxvt*iconFile: /usr/share/icons/Papirus-GTK/symbolic/apps/utilities-terminal-symbolic.svg
 
 Rxvt*.loginShell: true
-Rxvt*.perl-ext-common: default,selection-to-clipboard,matcher
+Rxvt*.perl-ext-common: eval,default,matcher
 Rxvt*.matcher.urlLauncher: xdg-open
 Rxvt*.matcher.button: C-1
+
+Rxvt.keysym.Meta-c: eval:selection_to_clipboard
+Rxvt.keysym.Meta-v: eval:paste_clipboard

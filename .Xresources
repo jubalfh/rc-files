@@ -161,9 +161,9 @@ Rxvt*.cursorBlink: false
 Rxvt*.scrollBar: false
 Rxvt*.depth: 32
 Rxvt*.internalBorder: 5
-Rxvt*.font: xft:PragmataPro Mono:size=15
-Rxvt*.boldfont: xft:PragmataPro Mono:style=bold
-Rxvt*.italicfont: xft:PragmataPro Mono:style=italic
+Rxvt*.font: xft:Iosevka Slab Medium:size=15,xft:PragmataPro:size=15
+Rxvt*.boldfont: xft:Iosevka Slab Medium:style=bold,xft:PragmataPro:style=bold
+Rxvt*.italicfont: xft:Iosevka Slab Medium:style=italic,xft:PragmataPro:style=italic
 
 Rxvt*.letterSpace: -2
 Rxvt*.termName: xterm-256color

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+full_ref=$(git rev-parse --symbolic-full-name --verify HEAD@{upstream})
+remote=$(git-remote-name)
+echo ${full_ref##refs/remotes/$remote/}

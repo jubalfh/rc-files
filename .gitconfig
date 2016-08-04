@@ -20,13 +20,6 @@
 	prompt = false
 
 [alias]
-	branch-name = !git for-each-ref --format='%(refname:short)' $(git symbolic-ref HEAD)
-	remote-branch-name = "!_() { \
-	    full_ref=\"$(git rev-parse --symbolic-full-name --verify HEAD@{upstream})\"; \
-	    remote=\"$(git remote-name)\"; \
-	    echo \"${full_ref##refs/remotes/$remote/}\"; \
-	  }; _"
-	remote-name = !git config branch.$(git branch-name).remote
 	branches = branch -a
 	id = rev-parse
 	pull = pull --ff-only
@@ -35,16 +28,6 @@
 	update = merge --ff-only
 	in = !git incoming
 	out = !git outgoing
-	incoming = "!_() { \
-	    remote=${1:-$(git remote-name)}; \
-	    branch=${2:-$(git remote-branch-name)}; \
-	    git fetch -q $remote && git --no-pager log HEAD..${remote}/${branch}; \
-	  }; _"
-	outgoing = "!_() { \
-	    remote=${1:-$(git remote-name)}; \
-	    branch=${2:-$(git remote-branch-name)}; \
-	    git fetch -q $remote && git --no-pager log ${remote}/${branch}..HEAD; \
-	  }; _"
 	ci = commit
 	co = checkout
 	st = status -s -b

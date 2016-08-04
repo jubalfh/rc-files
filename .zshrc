@@ -40,7 +40,7 @@ plugins=(
 path_components=(
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
-    "${HOME}/bin" "${HOME}/.rvm/bin"
+    "${HOME}/bin" "${HOME}/.rvm/bin" "${HOME}/.local/share/git"
 )
 
 # functions

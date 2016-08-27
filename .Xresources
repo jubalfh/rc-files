@@ -160,12 +160,17 @@ Rxvt*.cursorcolor: gDarkGreen
 Rxvt*.cursorBlink: false
 Rxvt*.scrollBar: false
 Rxvt*.depth: 32
-Rxvt*.internalBorder: 5
-Rxvt*.font: xft:Iosevka Slab Medium:size=15,xft:PragmataPro:size=15
-Rxvt*.boldfont: xft:Iosevka Slab Medium:style=bold,xft:PragmataPro:style=bold
-Rxvt*.italicfont: xft:Iosevka Slab Medium:style=italic,xft:PragmataPro:style=italic
-
-Rxvt*.letterSpace: -2
+Rxvt*.enableSmartResize: true
+Rxvt*.internalBorder: 7
+Rxvt*.font: \
+        xft:Iosevka Slab Medium:size=15, \
+        xft:Unifont:style=medium:size=15
+Rxvt*.boldfont: \
+        xft:Iosevka Slab Medium:size=15:style=bold, \
+        xft:Unifont:size=15:style=bold
+Rxvt*.italicfont: \
+        xft:Iosevka Slab Medium:size=15:style=italic, \
+        xft:Unifont:size=15:style=bold
 Rxvt*.termName: xterm-256color
 Rxvt*.geometry: 110x35
 Rxvt*.iconName: Terminal

@@ -7,7 +7,7 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-*font: -xos4-terminus-bold-r-normal-*-16-*-100-100-c-*-iso10646-1
+*font: xft:Iosevka Slab Medium:size=15
 
 !! solarized dark
 #define S_base03 #002b36
@@ -100,7 +100,7 @@ xterm*.bellIsUrgent: true
 xterm*.dynamicColors: true
 
 xterm*.renderFont: true
-xterm*.faceName: PragmataPro Mono
+xterm*.faceName: Iosevka Slab Medium
 xterm*.faceSize: 15
 
 xterm*.faceSize1: 6
@@ -164,17 +164,26 @@ Rxvt*.enableSmartResize: true
 Rxvt*.internalBorder: 7
 Rxvt*.font: \
         xft:Iosevka Slab Medium:size=15, \
+        xft:PragmataPro:size=15, \
+        xft:Noto Mono:size=15, \
+        xft:DejaVu Sans Mono:size=15, \
         xft:Unifont:style=medium:size=15
 Rxvt*.boldfont: \
         xft:Iosevka Slab Medium:size=15:style=bold, \
+        xft:PragmataPro:size=15:style=bold, \
+        xft:Noto Mono:size=15:style=bold, \
+        xft:DejaVu Sans Mono:size=15:style=bold, \
         xft:Unifont:size=15:style=bold
 Rxvt*.italicfont: \
         xft:Iosevka Slab Medium:size=15:style=italic, \
-        xft:Unifont:size=15:style=bold
+        xft:PragmataPro:size=15:style=italic, \
+        xft:Noto Mono:size=15:style=italic, \
+        xft:DejaVu Sans Mono:size=15:style=italic, \
+        xft:Unifont:size=15:style=italic
 Rxvt*.termName: xterm-256color
 Rxvt*.geometry: 110x35
 Rxvt*.iconName: Terminal
-Rxvt*iconFile: /usr/share/icons/Papirus-GTK/symbolic/apps/utilities-terminal-symbolic.svg
+Rxvt*.iconFile: /usr/share/icons/Papirus-GTK/symbolic/apps/utilities-terminal-symbolic.svg
 
 Rxvt*.loginShell: true
 Rxvt*.perl-ext-common: eval,default,matcher

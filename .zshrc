@@ -66,11 +66,6 @@ export FORTUNES=$HOME/.fortunes/common
 export ONELINERS=$HOME/.fortunes/one-liners
 export SIGFIXED=$HOME/.signatures/sigfixed
 
-export IRCNICK="Jubal"
-export IRCNAME="when it rains, it pours..."
-export IRCSERVER="polska.irc.pl"
-export IRCUMODE="+iw-s"
-
 export VISUAL=vim
 export EDITOR=vim
 
@@ -103,15 +98,10 @@ setopt notify
 setopt sharehistory
 
 # keybindings
-bindkey "[A" up-line-or-history
-bindkey "[B" down-line-or-history
-bindkey "[C" forward-char
-bindkey "[D" backward-char
-bindkey "[3~" vi-delete-char
 bindkey "^R" history-incremental-search-backward
 bindkey "^H" backward-delete-char
-bindkey "" vi-beginning-of-line 
-bindkey "" vi-end-of-line 
+bindkey "^A" vi-beginning-of-line
+bindkey "^E" vi-end-of-line
 
 # aliases
 if [[ -x /usr/bin/dircolors ]]; then

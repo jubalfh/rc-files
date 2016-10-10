@@ -1,0 +1,11 @@
+[.local/share/oh-my-zsh]
+checkout = git clone 'https://github.com/robbyrussell/oh-my-zsh.git' 'oh-my-zsh'
+
+[.tmux/plugins/tpm]
+checkout = git clone 'https://github.com/tmux-plugins/tpm' 'tpm'
+
+[.tmux/plugins/tmux-yank]
+checkout = git clone 'https://git::@github.com/tmux-plugins/tmux-yank' 'tmux-yank'
+
+[.tmux/plugins/tmux-sensible]
+checkout = git clone 'https://git::@github.com/tmux-plugins/tmux-sensible' 'tmux-sensible'

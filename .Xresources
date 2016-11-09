@@ -3,11 +3,12 @@
 Xft.antialias: true
 Xft.hinting: true
 !Xft.hintstyle: hintslight
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintmedium
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-*font: xft:Iosevka Slab Medium:size=15
+*font: fixed
+!*font: xft:Iosevka Slab Medium:size=14
 
 !! solarized dark
 #define S_base03 #002b36
@@ -163,23 +164,23 @@ Rxvt*.depth: 32
 Rxvt*.enableSmartResize: true
 Rxvt*.internalBorder: 7
 Rxvt*.font: \
-        xft:Iosevka Slab Medium:size=15, \
-        xft:PragmataPro:size=15, \
-        xft:Noto Mono:size=15, \
-        xft:DejaVu Sans Mono:size=15, \
-        xft:Unifont:style=medium:size=15
+        xft:Iosevka Slab Medium:size=14, \
+        xft:PragmataPro:size=14, \
+        xft:Noto Mono:size=14, \
+        xft:DejaVu Sans Mono:size=14, \
+        xft:Unifont:style=medium:size=14
 Rxvt*.boldfont: \
-        xft:Iosevka Slab Medium:size=15:style=bold, \
-        xft:PragmataPro:size=15:style=bold, \
-        xft:Noto Mono:size=15:style=bold, \
-        xft:DejaVu Sans Mono:size=15:style=bold, \
-        xft:Unifont:size=15:style=bold
+        xft:Iosevka Slab Medium:size=14:style=bold, \
+        xft:PragmataPro:size=14:style=bold, \
+        xft:Noto Mono:size=14:style=bold, \
+        xft:DejaVu Sans Mono:size=14:style=bold, \
+        xft:Unifont:size=14:style=bold
 Rxvt*.italicfont: \
-        xft:Iosevka Slab Medium:size=15:style=italic, \
-        xft:PragmataPro:size=15:style=italic, \
-        xft:Noto Mono:size=15:style=italic, \
-        xft:DejaVu Sans Mono:size=15:style=italic, \
-        xft:Unifont:size=15:style=italic
+        xft:Iosevka Slab Medium:size=14:style=italic, \
+        xft:PragmataPro:size=14:style=italic, \
+        xft:Noto Mono:size=14:style=italic, \
+        xft:DejaVu Sans Mono:size=14:style=italic, \
+        xft:Unifont:size=14:style=italic
 Rxvt*.termName: xterm-256color
 Rxvt*.geometry: 110x35
 Rxvt*.iconName: Terminal

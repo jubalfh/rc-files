@@ -56,4 +56,4 @@ if [ -f ~/.environment ]; then
     . ~/.environment
 fi
 
-which lesspipe >/dev/null 2>&1 && eval $(lesspipe)
+which lesspipe >/dev/null 2>&1 && eval "$(lesspipe)"

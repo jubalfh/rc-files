@@ -120,4 +120,3 @@ alias rx="exec $SHELL"
 # pager settings
 which lesspipe >/dev/null 2>&1 && eval $(lesspipe)
 export LESS="-R -F -X"
-

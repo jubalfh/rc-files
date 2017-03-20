@@ -1,5 +1,15 @@
 [.local/share/oh-my-zsh]
-checkout = git clone 'https://github.com/robbyrussell/oh-my-zsh.git' 'oh-my-zsh'
+update =
+        [[ -d .git ]] || (
+            git clone --no-checkout 'https://github.com/robbyrussell/oh-my-zsh.git' '.initial'
+            mv '.initial/.git' '.'
+            rmdir '.initial'
+            git reset --hard HEAD
+        )
+        git pull --rebase
+
+checkout =
+        git clone 'https://github.com/robbyrussell/oh-my-zsh.git' 'oh-my-zsh'
 
 [.tmux/plugins/tpm]
 checkout = git clone 'https://github.com/tmux-plugins/tpm' 'tpm'

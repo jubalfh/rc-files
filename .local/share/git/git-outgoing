@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-remote=${1:-$(git-remote-name)}
-branch=${2:-$(git-remote-branch-name)}
-git fetch -q ${remote} && git --no-pager log ${remote}/${branch}..HEAD
+remote="${1:-$(git-remote-name)}"
+branch="${2:-$(git-remote-branch-name)}"
+git fetch -q "${remote}" && git --no-pager log "${remote}/${branch}..HEAD"

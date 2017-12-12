@@ -22,23 +22,31 @@ zstyle ':vcs_info:*:*' nvcsformats "%~" ""
 add-zsh-hook precmd vcs_info
 
 function () {
-    local -a p_line p_elem
+    local -a p_line p_elem uhost_color ttyinfo rc_indicator
+
+    if [[ -n "${SSH_TTY}" ]]; then
+        uhost_color="003"
+    else
+        uhost_color="014"
+    fi
+
+    if [[ -n "${DESK_NAME}" ]]; then
+        ttyinfo='◲ (${DESK_NAME})'
+    else
+        ttyinfo='%y'
+    fi
+
+    rc_indicator='%(0?.%F{034}%(!.#.»)%F{default}.%F{160}%(!.#.»)%F{default})'
 
     # first line
     p_elem+=$'\n'
-    p_elem+='%F{006}[%F{default}'
-    if [[ -n "$SSH_TTY" ]]; then
-        p_elem+='%F{003}%n%F{default}%F{006}@%F{default}%F{003}%m%F{default}'
-    else
-        p_elem+='%F{014}%n%F{default}%F{006}@%F{default}%F{014}%m%F{default}'
-    fi
-    p_elem+='%F{006}]%F{default}'
+    p_elem+='%F{006}[%F{default}%F{'${uhost_color}'}%n%F{default}%F{006}@%F{default}%F{'${uhost_color}'}%m%F{default}%F{006}]%F{default}'
     p_elem+=' '
     p_elem+='%F{006}[%F{default}%F{014}${PWD/#$HOME/~}%F{default}%F{006}]%F{default}'
     p_line+=${(j::)p_elem}
 
     # second line
-    p_line+='%(0?.%F{034}▶%F{default}.%F{160}◀%F{default})(%y)%(!.#.») '
+    p_line+="${ttyinfo}${rc_indicator} "
 
     # prompts
     PROMPT=${(F)p_line}

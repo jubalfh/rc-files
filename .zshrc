@@ -30,8 +30,6 @@
     # Example format: plugins=(rails git textmate ruby lighthouse)
     plugins=(
     vi-mode
-    python
-    virtualenvwrapper
     mosh
     colorize
     git-flow-avh
@@ -39,7 +37,7 @@
     )
 
     path_components=(
-    /opt/linuxbrew/{s,}bin
+    /opt/brew/{s,}bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
     "${HOME}/bin" "${HOME}/.rvm/bin" "${HOME}/.local/share/git"
@@ -57,13 +55,6 @@
         echo "${(j.:.)path}"
     }
 
-
-    # get the oh-my-zsh baseline
-    if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
-        source $ZSH/oh-my-zsh.sh
-    fi
-
-
     # apply my preferences:
 
     # environment variables
@@ -80,6 +71,11 @@
 
     export MC_SKIN=$HOME/.config/mc/solarized.ini
     export WORKON_HOME="$HOME/.virtualenvs"
+
+    # get the oh-my-zsh baseline
+    if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+        source $ZSH/oh-my-zsh.sh
+    fi
 
     # options
     setopt appendhistory
@@ -115,11 +111,13 @@
         alias egrep='egrep --color=auto'
     fi
 
-    alias rx="exec $SHELL"
+    alias rx="exec \$SHELL"
 
     # pager settings
     which lesspipe >/dev/null 2>&1 && eval $(lesspipe)
     export LESS="-R -F -X"
+
+    export PATH="$(cleanup_path ${path_components[@]})"
 
     # personality requirements
     what=$(what-am-i)
@@ -131,6 +129,4 @@
     if [[ -f "$HOME/.zshrc.local" ]]; then
         source "$HOME/.zshrc.local"
     fi
-
-    export PATH="$(cleanup_path ${path_components[@]})"
 }

@@ -2,8 +2,9 @@
 
 # sunny - simple zsh theme with solarized in mind and vcs_info support
 
-# (c) 2014-2015 Miroslaw Baran <miroslaw+p+varia@makabra.org>
-# this script is free software under 3-clause BSD licence
+# (c) 2014-2018 Miroslaw Baran <miroslaw+p+varia@makabra.org>
+# this script, if at all copyrightable, is free software under
+# 3-clause BSD licence
 
 setopt promptsubst
 autoload -U add-zsh-hook
@@ -21,34 +22,52 @@ zstyle ':vcs_info:*:*' nvcsformats "%~" ""
 
 add-zsh-hook precmd vcs_info
 
-function () {
-    local -a p_line p_elem uhost_color ttyinfo rc_indicator
+() {
+    # prompt component containers
+    local -a _line _elem
+    # colours
+    local -A c
+    # prompt building bricks
+    local _rc _uidp _uhost _tty _lbracket _rbracket _at
 
-    if [[ -n "${SSH_TTY}" ]]; then
-        uhost_color="003"
-    else
-        uhost_color="014"
-    fi
 
-    if [[ -n "${DESK_NAME}" ]]; then
-        ttyinfo='◲ (${DESK_NAME})'
-    else
-        ttyinfo='%y'
-    fi
+    # prepare the bricks
+    # c[local]='%F{003}'
+    c[local]="%F{green}"
+    c[remote]="%F{014}"
+    c[path]="%F{014}"
+    c[ok]="%F{034}"
+    c[nok]="%F{red}"
+    c[deco]="%F{cyan}"
 
-    rc_indicator='%(0?.%F{034}%(!.#.»)%F{default}.%F{160}%(!.#.»)%F{default})'
+    _lbracket="${c[deco]}[%f"
+    _rbracket="${c[deco]}]%f"
+    _at="${c[deco]}@%f"
+
+    _uidp='%(!.#.»)' # am I root?
+
+    _uhost=${c[local]}
+    test -n "${SSH_TTY}" && _uhost=${c[remote]} # LOCAL is not REMOTE
+
+    _tty="%y"
+    test -n "${DESK_NAME}" && _tty="◲ (${DESK_NAME})" # desk is useful; use desk
+
+    _rc="%(0?.${c[ok]}${_uidp}%f.${c[nok]}${_uidp}%f)"
+
+
+    # construct the prompts
 
     # first line
-    p_elem+=$'\n'
-    p_elem+='%F{006}[%F{default}%F{'${uhost_color}'}%n%F{default}%F{006}@%F{default}%F{'${uhost_color}'}%m%F{default}%F{006}]%F{default}'
-    p_elem+=' '
-    p_elem+='%F{006}[%F{default}%F{014}${PWD/#$HOME/~}%F{default}%F{006}]%F{default}'
-    p_line+=${(j::)p_elem}
+    _elem+=$'\n'
+    _elem+="${_lbracket}${_uhost}%n${_at}${_uhost}%m${_rbracket}"
+    _elem+=" "
+    _elem+="${_lbracket}${c[path]}"'${PWD/#$HOME/~}'"${_rbracket}"
+    _line+=${(j::)_elem}
 
     # second line
-    p_line+="${ttyinfo}${rc_indicator} "
+    _line+="${_tty}${_rc} "
 
-    # prompts
-    PROMPT=${(F)p_line}
-    RPROMPT='%F{242}${vcs_info_msg_1_}%F{default}'
+    # and, finally:
+    PROMPT=${(F)_line}
+    RPROMPT='%F{242}${vcs_info_msg_1_}%f'
 }

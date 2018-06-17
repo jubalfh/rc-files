@@ -7,9 +7,6 @@ Xft.hintstyle: hintmedium
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
-*font: fixed
-!*font: xft:Iosevka Slab Medium:size=14
-
 !! solarized dark
 #define S_base03 #002b36
 #define S_base02 #073642
@@ -187,7 +184,7 @@ Rxvt*.iconName: Terminal
 Rxvt*.iconFile: /usr/share/icons/Papirus-GTK/symbolic/apps/utilities-terminal-symbolic.svg
 
 Rxvt*.loginShell: true
-Rxvt*.perl-ext-common: eval,default,matcher
+Rxvt*.perl-ext-common: eval,default,matcher,confirm-paste
 Rxvt*.matcher.urlLauncher: xdg-open
 Rxvt*.matcher.button: C-1
 

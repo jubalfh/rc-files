@@ -19,6 +19,9 @@
 [difftool]
 	prompt = false
 
+[advice]
+	ignoredHook = false
+
 [alias]
 	branches = branch -a
 	id = rev-parse

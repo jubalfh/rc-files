@@ -119,10 +119,16 @@
 
     export PATH="$(cleanup_path ${path_components[@]})"
 
+    # just in case nothing else in the execution order did this…
+    autoload -U add-zsh-hook
+
+    # desk awareness
+    [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
+
     # personality requirements
-    what=$(what-am-i)
-    if [[ -f "$HOME/.machine.${what}" ]]; then
-        source "$HOME/.machine.${what}"
+    what=$(what-am-i); machine_file="$HOME/.local/lib/${what}/machine"
+    if [[ -f "${machine_file}" ]]; then
+        source "${machine_file}"
     fi
 
     # and local changes

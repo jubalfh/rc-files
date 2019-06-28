@@ -37,7 +37,7 @@
     )
 
     path_components=(
-    /opt/brew/{s,}bin
+    /home/linuxbrew/.linuxbrew/{s,}bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
     "${HOME}/bin" "${HOME}/.rvm/bin" "${HOME}/.local/share/git"
@@ -126,7 +126,7 @@
     [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
     # personality requirements
-    what=$(what-am-i); machine_file="$HOME/.local/lib/${what}/machine"
+    what=$(what-am-i); machine_file="$HOME/.local/lib/dotfiles/${what}/machine"
     if [[ -f "${machine_file}" ]]; then
         source "${machine_file}"
     fi

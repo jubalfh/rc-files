@@ -1,2 +1,2 @@
 mkdir -p /usr/local/tmp/$USER/mux
-eval $($HOME/.local/lib/win64/weasel-pageant -r) 2>&1 >/dev/null
+eval $($HOME/.local/lib/win64/weasel-pageant -r)

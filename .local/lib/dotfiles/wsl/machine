@@ -1,2 +1,2 @@
 mkdir -p /usr/local/tmp/$USER/mux
-eval $($HOME/.local/lib/win64/weasel-pageant -r)
+eval $($HOME/scoop/apps/ssh-agent-wsl/current/ssh-agent-wsl -r)

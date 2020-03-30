@@ -6,6 +6,7 @@
 !/.config/fontconfig/fonts.conf
 !/.config/mc
 !/.config/mc/solarized.ini
+!/.config/Microsoft/**
 !/.dircolors
 !/.git-template
 !/.git-template/hooks

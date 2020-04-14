@@ -6,10 +6,12 @@
     "showTerminalTitleInTitlebar": true,
     "requestedTheme": "dark",
     "confirmCloseAllTabs": false,
+    "snapToGridOnResize": false,
     "profiles": {
             "defaults": {
                         "antialiasingMode": "cleartype",
-                        "fontFace": "Iosevka SS07",
+                        // "fontFace": "Iosevka SS07",
+                        "fontFace": "PragmataPro",
                         "fontSize": 12,
                         "colorScheme": "Gruvbox Dark",
                         "hidden": false,
@@ -26,9 +28,14 @@
                                         "name": "debian",
                                         "source": "Windows.Terminal.Wsl"
                                     },
-                        {
+                                    {
                                         "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                                         "name": "pwsh",
+                                        "closeOnExit": "graceful",
+                                        "source": "Windows.Terminal.PowershellCore"
+                                    },                       {
+                                        "name": "pwsh-present",
+                                        "hidden": true,
                                         "closeOnExit": "graceful",
                                         "source": "Windows.Terminal.PowershellCore"
                                     },

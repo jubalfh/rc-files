@@ -3,7 +3,7 @@
 what_am_i=$(uname -s)
 case "${what_am_i}" in
     Linux*)
-        if (uname -r | grep Microsoft >/dev/null 2>&1); then
+        if (uname -r | grep -i Microsoft >/dev/null 2>&1); then
             what="wsl"
         else
             what="linux"

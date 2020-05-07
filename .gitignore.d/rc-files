@@ -20,6 +20,9 @@
 !/.gitignore.d
 !/.gitignore.d/rc-files
 !/.local
+!/.local/lib
+!/.local/lib/dotfiles
+!/.local/lib/dotfiles/**
 !/.local/share
 !/.local/share/applications
 !/.local/share/applications/rxvt.desktop

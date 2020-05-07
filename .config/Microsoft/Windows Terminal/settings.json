@@ -18,7 +18,8 @@
             "cursorShape": "filledBox",
             "hidden": false,
             "useAcrylic": false,
-            "closeOnExit": "always"
+            "closeOnExit": "always",
+            "startingDirectory": "%USERPROFILE%"
         },
         "list": [
             {

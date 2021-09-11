@@ -6,8 +6,10 @@
 !/.config/fontconfig/fonts.conf
 !/.config/mc
 !/.config/mc/solarized.ini
+!/.config/wezterm
+!/.config/wezterm/wezterm.lua
 !/.config/Microsoft
-!/.config/Microsoft/**
+!/.config/Microsoft/Windows Terminal
 !/.dircolors
 !/.git-template
 !/.git-template/hooks

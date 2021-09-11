@@ -1,6 +1,14 @@
+_confd() {
+    echo ${XDG_CONFIG_HOME:-~/.config}
+}
+
+_locald() {
+    echo ${XDG_LOCAL_DIR:-~/.local}
+}
+
 (){
     # Path to your oh-my-zsh configuration.
-    export ZSH="${HOME}/.local/share/oh-my-zsh"
+    export ZSH="$(_locald)/share/oh-my-zsh"
 
     # Theme settings. Optionally, if you set this to "random",
     # it'll load a random theme each time that oh-my-zsh is
@@ -40,7 +48,7 @@
     /home/linuxbrew/.linuxbrew/{s,}bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
-    "${HOME}/bin" "${HOME}/.rvm/bin" "${HOME}/.local/share/git"
+    ~/bin ~/.local/bin ~/.rvm/bin ~/.local/share/git
     )
 
     # functions
@@ -62,19 +70,19 @@
     export HISTSIZE=100000
     export SAVEHIST=100000
 
-    export FORTUNES=$HOME/.fortunes/common
-    export ONELINERS=$HOME/.fortunes/one-liners
-    export SIGFIXED=$HOME/.signatures/sigfixed
+    export FORTUNES=~/.fortunes/common
+    export ONELINERS=~/.fortunes/one-liners
+    export SIGFIXED=~/.signatures/sigfixed
 
     export VISUAL=vim
     export EDITOR=vim
 
-    export MC_SKIN=$HOME/.config/mc/solarized.ini
-    export WORKON_HOME="$HOME/.virtualenvs"
+    export MC_SKIN=~/.config/mc/solarized.ini
+    export WORKON_HOME=~/.virtualenvs
 
     # get the oh-my-zsh baseline
     if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
-        source $ZSH/oh-my-zsh.sh
+        source "$ZSH/oh-my-zsh.sh"
     fi
 
     # options
@@ -126,13 +134,13 @@
     [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
     # personality requirements
-    what=$(what-am-i); machine_file="$HOME/.local/lib/dotfiles/${what}/machine"
+    what=$(what-am-i); machine_file="$(_locald)/lib/dotfiles/${what}/machine"
     if [[ -f "${machine_file}" ]]; then
         source "${machine_file}"
     fi
 
     # and local changes
-    if [[ -f "$HOME/.zshrc.local" ]]; then
-        source "$HOME/.zshrc.local"
+    if [[ -f ~/.zshrc.local ]]; then
+        source ~/.zshrc.local
     fi
 }

@@ -1,11 +1,15 @@
 !! proper Xft settings, praised be Powers That Be
-!! Xft.dpi: 96
+Xft.dpi: 100
 Xft.antialias: true
 Xft.hinting: true
 !Xft.hintstyle: hintslight
 Xft.hintstyle: hintmedium
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
+
+#if __has_include(".xresources.local")
+# include ".xresources.local"
+#endif
 
 !! solarized dark
 #define S_base03 #002b36

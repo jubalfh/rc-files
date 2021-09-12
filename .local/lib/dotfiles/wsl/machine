@@ -1,7 +1,39 @@
-mkdir -p /usr/local/tmp/$USER/mux
+# vim: set filetype=sh.zsh
+# add various windows tools to the path
+if [[ -d "${HOME}/.local/lib/win64" ]]; then
+    PATH="${PATH}:${HOME}/.local/lib/win64"
+fi
 
-if [[ -w /mnt/c/temp/wsl-ssh-agent.sock ]]; then
-    export SSH_AUTH_SOCK="/mnt/c/temp/wsl-ssh-agent.sock"
-else
-    eval $($HOME/scoop/apps/ssh-agent-wsl/current/ssh-agent-wsl -r)
+# add scoop shims too
+if [[ -d "/mnt/c/programdata/scoop/shims" ]]; then
+    PATH="${PATH}:/mnt/c/programdata/scoop/shims"
+fi
+
+if [[ -d "${HOME}/scoop/shims" ]]; then
+    PATH="${PATH}:${HOME}/scoop/shims"
+fi
+
+for _cmd in gvim pbcopy pbpaste; do
+    which ${_cmd}.exe 2>&1 >/dev/null && ${_cmd}() { $0.exe $@ }
+done
+
+# handle ssh-agent forwarding back to windows transparently (as per
+# https://stuartleeks.com/posts/wsl-ssh-key-forward-to-windows/)
+
+export SSH_AUTH_SOCK=/tmp/agent.sock
+# need `ps -ww` to get non-truncated command for matching use square
+# brackets to generate a regex match for the process we want but that
+# doesn't match the grep command running it!
+ALREADY_RUNNING=$(ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; echo $?)
+if [[ $ALREADY_RUNNING != "0" ]]; then
+    if [[ -S $SSH_AUTH_SOCK ]]; then
+        # not expecting the socket to exist as the forwarding command
+        # isn't running (http://www.tldp.org/LDP/abs/html/fto.html)
+        rm $SSH_AUTH_SOCK
+    fi
+    echo "starting ssh-agent relay..."
+    # setsid to force new session to keep running
+    # set socat to listen on $SSH_AUTH_SOCK and forward to npiperelay
+    # which then forwards to openssh-ssh-agent on windows
+    (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
 fi

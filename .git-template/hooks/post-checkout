@@ -1,1 +1,5 @@
-post-commit
+#!/bin/bash
+
+: ${GIT_DIR:=.git}
+
+${GIT_DIR}/hooks/ctags >/dev/null 2>&1 &

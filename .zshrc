@@ -46,9 +46,11 @@ _locald() {
 
     path_components=(
     /home/linuxbrew/.linuxbrew/{s,}bin
-    /usr/local/opt/coreutils/libexec/gnubin
-    /usr/local/{s,}bin /{s,}bin /usr/{s,}bin /usr/games
-    ~/bin ~/.local/bin ~/.rvm/bin ~/.local/share/git
+    /usr/local/{s,}bin
+    /{s,}bin
+    /usr/{s,}bin
+    /usr/games
+    ~/bin ~/.local/bin ~/.local/share/git
     )
 
     # functions

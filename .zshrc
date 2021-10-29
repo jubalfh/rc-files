@@ -1,14 +1,14 @@
-_confd() {
+_conf.d() {
     echo ${XDG_CONFIG_HOME:-~/.config}
 }
 
-_locald() {
+_local.d() {
     echo ${XDG_LOCAL_DIR:-~/.local}
 }
 
 (){
     # Path to your oh-my-zsh configuration.
-    export ZSH="$(_locald)/share/oh-my-zsh"
+    export ZSH="$(_local.d)/share/oh-my-zsh"
 
     # Theme settings. Optionally, if you set this to "random",
     # it'll load a random theme each time that oh-my-zsh is
@@ -45,6 +45,7 @@ _locald() {
     )
 
     path_components=(
+    ~/.cargo/bin
     /home/linuxbrew/.linuxbrew/{s,}bin
     /usr/local/{s,}bin
     /{s,}bin
@@ -81,6 +82,8 @@ _locald() {
 
     export MC_SKIN=~/.config/mc/solarized.ini
     export WORKON_HOME=~/.virtualenvs
+
+    export HOMEBREW_NO_ANALYTICS=1
 
     # get the oh-my-zsh baseline
     if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
@@ -136,7 +139,7 @@ _locald() {
     [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
     # personality requirements
-    what=$(what-am-i); machine_file="$(_locald)/lib/dotfiles/${what}/machine"
+    what=$(what-am-i); machine_file="$(_local.d)/lib/dotfiles/${what}/machine"
     if [[ -f "${machine_file}" ]]; then
         source "${machine_file}"
     fi

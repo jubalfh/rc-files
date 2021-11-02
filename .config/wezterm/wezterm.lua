@@ -20,7 +20,13 @@ local key_bindings = {
 }
 
 local mouse_bindings = {
-    -- paste on right-click
+    -- copy to clipboard on ctrl-right-click
+    { event={Up={streak=1, button="Right"}}, mods="CTRL", action="Nop" },
+    { event={Down={streak=1, button="Right"}},
+        mods="CTRL",
+        action={CompleteSelection="Clipboard"}
+    },
+    -- paste from clipboard on right-click
     { event={Up={streak=1, button="Right"}}, mods="NONE", action="Nop" },
     { event={Down={streak=1, button="Right"}},
         mods="NONE",
@@ -36,7 +42,7 @@ local mouse_bindings = {
         mods="NONE",
         action={ExtendSelectionToMouseCursor="Cell"}
     },
-    -- …or pressign shift and left button,
+    -- …or pressing shift and left button,
     { event={Down={streak=1, button="Left"}},
         mods="SHIFT",
         action={ExtendSelectionToMouseCursor={}}

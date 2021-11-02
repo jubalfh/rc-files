@@ -10,10 +10,10 @@
 	branch = always
 
 [merge]
-	tool = bc3
+	tool = meld
 
 [diff]
-	tool = bc3
+	tool = meld
 	compactionHeuristic = true
 
 [difftool]
@@ -36,8 +36,6 @@
 	st = status -s -b
 	gll = log --color=always --all --graph --topo-order --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
 	root = !pwd -P
-	sm = submodule
-	pullsub = submodule foreach "git pull origin master"
 	unstage = reset HEAD --
 	ctags = "!: ${GIT_DIR:=.git} && ${GIT_DIR}/hooks/ctags"
 	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git diff-index --quiet HEAD; s=$?; [ $s != 0 ] && git stash save \"tmp stash from stash-rename\"; git stash apply $rev && shift && git stash save \"$@\" && [ $s != 0 ] && git stash pop stash@{1}; }; _"

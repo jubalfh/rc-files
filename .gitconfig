@@ -49,6 +49,7 @@
 
 [init]
 	templatedir = ~/.git-template
+	defaultBranch = trunk
 
 [difftool "bc3"]
 	trustExitCode = true

@@ -13,8 +13,8 @@ local key_bindings = {
     {mods="CTRL|SHIFT", key="d", action="ShowDebugOverlay"},
     {mods="SHIFT", key="Insert", action=act{PasteFrom="PrimarySelection"}},
 
-    {mods="LEADER", key="h", action=act{SplitHorizontal={domain="CurrentPaneDomain"}}},
-    {mods="LEADER", key="v", action=act{SplitVertical={domain="CurrentPaneDomain"}}},
+    {mods="LEADER", key="|", action=act{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    {mods="LEADER", key="-", action=act{SplitVertical={domain="CurrentPaneDomain"}}},
     {mods="LEADER", key="z", action="TogglePaneZoomState"},
     {mods="LEADER|CTRL", key="a", action=act{SendString="\x01"}},
 }
@@ -62,7 +62,7 @@ local mouse_bindings = {
         mods="NONE",
         action={ExtendSelectionToMouseCursor="Word"}
     },
-    -- …or pressign shift and left button,
+    -- …or pressing shift and left button,
     { event={Down={streak=2, button="Left"}},
         mods="SHIFT",
         action={ExtendSelectionToMouseCursor="Word"}
@@ -82,7 +82,7 @@ local mouse_bindings = {
         mods="NONE",
         action={ExtendSelectionToMouseCursor="Line"}
     },
-    -- …or pressign shift and left button,
+    -- …or pressing shift and left button,
     { event={Down={streak=3, button="Left"}},
         mods="SHIFT",
         action={ExtendSelectionToMouseCursor="Line"}

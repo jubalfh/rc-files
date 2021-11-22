@@ -42,6 +42,9 @@ _local.d() {
         colorize
         git-flow-avh
         history-substring-search
+        virtualenv
+        pyenv
+        bash_completion
     )
 
     path_components=(

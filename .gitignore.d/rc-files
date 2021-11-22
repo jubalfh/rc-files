@@ -40,5 +40,7 @@
 !/.local/share/oh-my-zsh/custom/themes
 !/.local/share/oh-my-zsh/custom/themes/sunny.zsh-theme
 !/.mrconfig
+!/.ssh
+!/.ssh/config
 !/.tmux.conf
 !/.zshrc

@@ -104,7 +104,7 @@ return {
     -- basic window settings
     window_close_confirmation="NeverPrompt",
     exit_behavior = "Close",
-    window_padding = {2, 2, 2, 2},
+    window_padding = {4, 4, 4, 4},
     window_decorations = "RESIZE",
     enable_tab_bar = false,
     -- color scheme

@@ -122,6 +122,8 @@ return {
     freetype_render_target = "HorizontalLcd",
     freetype_interpreter_version = 40,
     use_ime = true,
+    -- no update checks, please
+    check_for_updates = false,
     -- key mappings
     -- disable_default_key_bindings = true,
     leader = leader,

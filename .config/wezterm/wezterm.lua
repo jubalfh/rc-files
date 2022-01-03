@@ -24,13 +24,13 @@ local mouse_bindings = {
     { event={Up={streak=1, button="Right"}}, mods="CTRL", action="Nop" },
     { event={Down={streak=1, button="Right"}},
         mods="CTRL",
-        action={CompleteSelection="Clipboard"}
+        action={CompleteSelection="PrimarySelection"}
     },
     -- paste from clipboard on right-click
     { event={Up={streak=1, button="Right"}}, mods="NONE", action="Nop" },
     { event={Down={streak=1, button="Right"}},
         mods="NONE",
-        action={PasteFrom="Clipboard"}
+        action={PasteFrom="PrimarySelection"}
     },
     -- select on pressing down left button
     { event={Down={streak=1, button="Left"}},

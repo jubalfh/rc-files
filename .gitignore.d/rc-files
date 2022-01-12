@@ -30,11 +30,7 @@
 !/.local/share/applications
 !/.local/share/applications/rxvt.desktop
 !/.local/share/git
-!/.local/share/git/git-branch-name
-!/.local/share/git/git-incoming
-!/.local/share/git/git-outgoing
-!/.local/share/git/git-remote-branch-name
-!/.local/share/git/git-remote-name
+!/.local/share/git/**
 !/.local/share/oh-my-zsh
 !/.local/share/oh-my-zsh/custom
 !/.local/share/oh-my-zsh/custom/themes

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+git name-rev --name-only "@{upstream}" | sed -e $"s|remotes/.\+/||"

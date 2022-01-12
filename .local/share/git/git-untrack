@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+branch="${1:-"$(git branch-name)"}"
+git config "branch.${branch}.remote" "."

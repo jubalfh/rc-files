@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+remote="${1:-"origin"}"
+git symbolic-ref --short "refs/remotes/${remote}/HEAD" | sed -e $"s|${remote}/||"

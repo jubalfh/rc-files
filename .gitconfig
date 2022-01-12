@@ -24,8 +24,6 @@
 
 [alias]
 	branches = branch -a
-	branch-name = name-rev --name-only HEAD
-	tracking-branch = name-rev --name-only @{upstream}
 	id = rev-parse
 	up = merge --ff-only
 	update = merge --ff-only
@@ -60,3 +58,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[pull]
+	ff = only

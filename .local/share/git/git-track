@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+remote="${1:-origin}"
+branch="${2:-"$(git default-branch "${remote}")"}"
+git branch --set-upstream-to "${remote}/${branch}"

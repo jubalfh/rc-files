@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-remote="${1:-$(git remote-name)}"
-git name-rev --name-only "${remote}/HEAD"

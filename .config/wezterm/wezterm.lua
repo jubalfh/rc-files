@@ -21,76 +21,14 @@ local key_bindings = {
 
 local mouse_bindings = {
     -- copy to clipboard on ctrl-right-click
-    { event={Up={streak=1, button="Right"}}, mods="CTRL", action="Nop" },
     { event={Down={streak=1, button="Right"}},
         mods="CTRL",
-        action={CompleteSelection="PrimarySelection"}
+        action={CopyTo="ClipboardAndPrimarySelection"}
     },
     -- paste from clipboard on right-click
-    { event={Up={streak=1, button="Right"}}, mods="NONE", action="Nop" },
     { event={Down={streak=1, button="Right"}},
         mods="NONE",
-        action={PasteFrom="PrimarySelection"}
-    },
-    -- select on pressing down left button
-    { event={Down={streak=1, button="Left"}},
-        mods="NONE",
-        action={SelectTextAtMouseCursor="Cell"}
-    },
-    -- extend on dragging the pointer…
-    { event={Drag={streak=1, button="Left"}},
-        mods="NONE",
-        action={ExtendSelectionToMouseCursor="Cell"}
-    },
-    -- …or pressing shift and left button,
-    { event={Down={streak=1, button="Left"}},
-        mods="SHIFT",
-        action={ExtendSelectionToMouseCursor={}}
-    },
-    -- complete the selection on releasing the left button.
-    { event={Up={streak=1, button="Left"}},
-        mods="NONE",
-        action={CompleteSelection="PrimarySelection"}
-    },
-    -- select word on double-click,
-    { event={Down={streak=2, button="Left"}},
-        mods="NONE",
-        action={SelectTextAtMouseCursor="Word"}
-    },
-    -- extend the selection by dragging the pointer…
-    { event={Drag={streak=2, button="Left"}},
-        mods="NONE",
-        action={ExtendSelectionToMouseCursor="Word"}
-    },
-    -- …or pressing shift and left button,
-    { event={Down={streak=2, button="Left"}},
-        mods="SHIFT",
-        action={ExtendSelectionToMouseCursor="Word"}
-    },
-    -- complete the selection on releasing the left button.
-    { event={Up={streak=2, button="Left"}},
-        mods="NONE",
-        action={CompleteSelection="PrimarySelection"}
-    },
-    -- select line on triple-click,
-    { event={Down={streak=3, button="Left"}},
-        mods="NONE",
-        action={SelectTextAtMouseCursor="Line"}
-    },
-    -- extend the selection by dragging the pointer…
-    { event={Drag={streak=3, button="Left"}},
-        mods="NONE",
-        action={ExtendSelectionToMouseCursor="Line"}
-    },
-    -- …or pressing shift and left button,
-    { event={Down={streak=3, button="Left"}},
-        mods="SHIFT",
-        action={ExtendSelectionToMouseCursor="Line"}
-    },
-    -- complete the selection on releasing the left button.
-    { event={Up={streak=3, button="Left"}},
-        mods="NONE",
-        action={CompleteSelection="PrimarySelection"}
+        action={PasteFrom="Clipboard"}
     },
     -- open url on ctrl-left-click
     { event={Up={streak=1, button="Left"}},
@@ -122,15 +60,11 @@ return {
     freetype_render_target = "HorizontalLcd",
     freetype_interpreter_version = 40,
     use_ime = true,
-    -- no update checks, please
-    check_for_updates = false,
-    -- key mappings
-    -- disable_default_key_bindings = true,
+    -- key mappings and leader kery
     leader = leader,
     keys = key_bindings,
-    -- mouse mappings; these are almost (but not entirely) like the
-    -- original ones, so let's make sure we're working with clean slate
-    -- here
-    disable_default_mouse_bindings = true,
+    -- mouse mappings; simplified (again)
     mouse_bindings = mouse_bindings,
+    -- no update checks, please
+    check_for_updates = false,
 }

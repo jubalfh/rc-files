@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
 
-remote="$(git config --get branch.$(git branch-name).remote)"
-if [[ "${remote}" == "." ]]; then
-    remote="$(git config --get branch.$(git tracking-branch).remote)"
-fi
-
-echo "${remote}"
+git config --get branch.$(git branch-name).remote

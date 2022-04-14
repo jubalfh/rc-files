@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-git name-rev --name-only HEAD
+git name-rev --exclude="tags/*" --name-only HEAD

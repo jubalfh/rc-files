@@ -1,8 +1,10 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
-local leader = { key="a", mods="CTRL" }
+local leader = { key="phys:A", mods="CTRL", timeout_milliseconds=1000 }
 local key_bindings = {
+    {mods="CTRL", key="LeftArrow", action=act{ActivateTabRelative=-1}},
+    {mods="CTRL", key="RightArrow", action=act{ActivateTabRelative=1}},
     {mods="CTRL|SHIFT", key="LeftArrow", action=act{ActivatePaneDirection="Left"}},
     {mods="CTRL|SHIFT", key="RightArrow", action=act{ActivatePaneDirection="Right"}},
     {mods="CTRL|SHIFT", key="UpArrow", action=act{ActivatePaneDirection="Up"}},
@@ -10,13 +12,13 @@ local key_bindings = {
 
     {mods="CTRL|SHIFT", key="r", action="ReloadConfiguration"},
     {mods="CTRL|SHIFT", key="l", action=act{ClearScrollback = "ScrollbackAndViewport"}},
-    {mods="CTRL|SHIFT", key="d", action="ShowDebugOverlay"},
     {mods="SHIFT", key="Insert", action=act{PasteFrom="PrimarySelection"}},
 
-    {mods="LEADER", key="|", action=act{SplitHorizontal={domain="CurrentPaneDomain"}}},
-    {mods="LEADER", key="-", action=act{SplitVertical={domain="CurrentPaneDomain"}}},
+    {mods="LEADER", key="h", action=act{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    {mods="LEADER", key="v", action=act{SplitVertical={domain="CurrentPaneDomain"}}},
+    {mods="LEADER", key="d", action="ShowDebugOverlay"},
     {mods="LEADER", key="z", action="TogglePaneZoomState"},
-    {mods="LEADER|CTRL", key="a", action=act{SendString="\x01"}},
+    {mods="LEADER|CTRL", key="phys:A", action=act{SendString="\x01"}},
 }
 
 local mouse_bindings = {
@@ -60,7 +62,7 @@ return {
     freetype_render_target = "HorizontalLcd",
     freetype_interpreter_version = 40,
     use_ime = true,
-    -- key mappings and leader kery
+    -- key mappings and leader key
     leader = leader,
     keys = key_bindings,
     -- mouse mappings; simplified (again)

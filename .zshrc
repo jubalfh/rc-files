@@ -37,18 +37,20 @@ _local.d() {
     # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
     # Example format: plugins=(rails git textmate ruby lighthouse)
     plugins=(
+        direnv
+        pyenv
         vi-mode
         mosh
         colorize
         git-flow-avh
         history-substring-search
         virtualenv
-        pyenv
         bash_completion
     )
 
     path_components=(
     ~/.cargo/bin
+    ~/.pyenv/{bin,shims}
     /home/linuxbrew/.linuxbrew/{s,}bin
     /usr/local/{s,}bin
     /{s,}bin
@@ -68,6 +70,7 @@ _local.d() {
         done
         echo "${(j.:.)path}"
     }
+    export PATH="$(cleanup_path ${path_components[@]})"
 
     # apply my preferences:
 
@@ -132,8 +135,6 @@ _local.d() {
     # pager settings
     which lesspipe >/dev/null 2>&1 && eval $(lesspipe)
     export LESS="-R -F -X"
-
-    export PATH="$(cleanup_path ${path_components[@]})"
 
     # just in case nothing else in the execution order did this…
     autoload -U add-zsh-hook

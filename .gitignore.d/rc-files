@@ -21,6 +21,8 @@
 !/.gitignore
 !/.gitignore.d
 !/.gitignore.d/rc-files
+!/.gnupg
+!/.gnupg/scdaemon.conf
 !/.local
 !/.local/bin
 !/.local/lib

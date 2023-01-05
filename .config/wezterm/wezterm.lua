@@ -10,7 +10,6 @@ local key_bindings = {
     { mods = "CTRL|SHIFT", key = "UpArrow", action = _a.ActivatePaneDirection("Up") },
     { mods = "CTRL|SHIFT", key = "DownArrow", action = _a.ActivatePaneDirection("Down") },
 
-    { mods = "CTRL|SHIFT", key = "r", action = _a.ReloadConfiguration },
     { mods = "CTRL|SHIFT", key = "l", action = _a.ClearScrollback("ScrollbackAndViewport") },
     { mods = "SHIFT", key = "Insert", action = _a.PasteFrom("PrimarySelection") },
 
@@ -18,6 +17,7 @@ local key_bindings = {
     { mods = "LEADER", key = "v", action = _a.SplitVertical({ domain = "CurrentPaneDomain" }) },
     { mods = "LEADER", key = "d", action = _a.ShowDebugOverlay },
     { mods = "LEADER", key = "z", action = _a.TogglePaneZoomState },
+    { mods = "LEADER", key = "r", action = _a.ReloadConfiguration },
 }
 
 local mouse_bindings = {
@@ -58,7 +58,7 @@ return {
     adjust_window_size_when_changing_font_size = false,
     warn_about_missing_glyphs = false,
     freetype_load_target = "Light",
-    freetype_render_target = "HorizontalLcd",
+    freetype_render_target = "Normal",
     freetype_interpreter_version = 40,
     use_ime = true,
     -- key mappings and leader key
@@ -68,4 +68,9 @@ return {
     mouse_bindings = mouse_bindings,
     -- no update checks, please
     check_for_updates = false,
+    -- remaining options
+    scrollback_lines = 25000,
+    front_end = "WebGpu",
+    webgpu_power_preference = "HighPerformance",
+    animation_fps = 15,
 }

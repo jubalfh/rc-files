@@ -47,7 +47,7 @@ return {
     window_decorations = "RESIZE",
     enable_tab_bar = false,
     -- color scheme
-    color_scheme = "Gruvbox Dark",
+    color_scheme = "GruvboxDark",
     -- fonts & input handling
     font = wezterm.font_with_fallback({
         { family = "Iosevka Term SS07", weight = "Medium" },

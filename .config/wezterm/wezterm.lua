@@ -70,7 +70,7 @@ return {
     check_for_updates = false,
     -- remaining options
     scrollback_lines = 25000,
-    front_end = "WebGpu",
-    webgpu_power_preference = "HighPerformance",
+    -- front_end = "WebGpu",
+    -- webgpu_power_preference = "HighPerformance",
     animation_fps = 15,
 }

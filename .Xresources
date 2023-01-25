@@ -103,7 +103,7 @@ xterm*.dynamicColors: true
 
 xterm*.renderFont: true
 xterm*.faceName: Iosevka Slab Medium
-xterm*.faceSize: 15
+xterm*.faceSize: 12
 
 xterm*.faceSize1: 6
 xterm*.faceSize2: 9

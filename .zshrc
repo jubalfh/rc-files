@@ -97,20 +97,25 @@ _local.d() {
     fi
 
     # options
-    setopt appendhistory
-    setopt autocd
-    setopt completeinword
-    setopt nocorrectall
-    setopt extendedglob
-    setopt histexpiredupsfirst
-    setopt histignoredups
-    setopt histverify
-    setopt incappendhistory
-    setopt nohistfindnodups
-    setopt nohistsavebycopy
-    setopt nomatch
-    setopt notify
-    setopt sharehistory
+    # history management
+    setopt APPEND_HISTORY
+    setopt HIST_EXPIRE_DUPS_FIRST
+    setopt HIST_IGNORE_DUPS
+    setopt HIST_IGNORE_SPACE
+    setopt NO_HIST_REDUCE_BLANKS
+    setopt HIST_FCNTL_LOCK
+    setopt HIST_VERIFY
+    setopt HIST_FIND_NO_DUPS
+    setopt INC_APPEND_HISTORY
+    setopt SHARE_HISTORY
+    # varia
+    setopt AUTO_CD
+    setopt COMBINING_CHARS
+    setopt COMPLETE_IN_WORD
+    setopt NO_CORRECT_ALL
+    setopt EXTENDED_GLOB
+    setopt NOMATCH
+    setopt NOTIFY
 
     # keybindings
     bindkey "^R" history-incremental-search-backward

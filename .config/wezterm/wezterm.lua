@@ -52,6 +52,7 @@ return {
     font = wezterm.font_with_fallback({
         { family = "Iosevka Term SS07", weight = "Medium" },
         { family = "Iosevka Term", weight = "Medium" },
+        { family = "Nerd Font Symbol Mono"},
     }),
     font_size = 12.0,
     allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace",

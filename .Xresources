@@ -1,5 +1,4 @@
 !! proper Xft settings, praised be Powers That Be
-Xft.dpi: 100
 Xft.antialias: true
 Xft.hinting: true
 !Xft.hintstyle: hintslight

@@ -67,8 +67,9 @@ config.use_ime = true
 config.check_for_updates = false
 -- remaining options
 config.scrollback_lines = 25000
--- config.front_end = "WebGpu"
+config.front_end = "WebGpu"
 -- config.webgpu_power_preference = "HighPerformance"
 config.animation_fps = 15
+config.enable_scroll_bar = true
 
 return config

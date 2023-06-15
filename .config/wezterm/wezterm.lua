@@ -39,23 +39,25 @@ config.mouse_bindings = {
     -- open url on ctrl-left-click
     { event = { Up = { streak = 1, button = "Left" } }, mods = "CTRL", action = _a.OpenLinkAtMouseCursor },
     { event = { Down = { streak = 1, button = "Left" } }, mods = "CTRL", action = _a.Nop },
+    { event = { Down = { streak = 1, button = { WheelUp = 1 } } }, mods = "NONE", action = _a.ScrollByLine(-1) },
+    { event = { Down = { streak = 1, button = { WheelDown = 1 } } }, mods = "NONE", action = _a.ScrollByLine(1) },
 }
 
 -- general config data follows
 config.window_close_confirmation = "NeverPrompt"
 config.exit_behavior = "Close"
 config.window_padding = { left="4px", right="4px", top="4px", bottom="4px"}
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE | RESIZE"
 config.enable_tab_bar = false
 -- color scheme
 config.color_scheme = "GruvboxDark"
 -- fonts & input handling
 config.font = wezterm.font_with_fallback({
+        { family = "Fantasque Sans Mono", weight = "Medium" },
         { family = "Iosevka Term SS07", weight = "Medium" },
-        { family = "Iosevka Term", weight = "Medium" },
         { family = "Nerd Font Symbol Mono"},
     })
-config.font_size = 12.0
+config.font_size = 13.0
 config.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace"
 config.adjust_window_size_when_changing_font_size = false
 config.warn_about_missing_glyphs = false

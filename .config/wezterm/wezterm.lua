@@ -53,6 +53,7 @@ config.enable_tab_bar = false
 config.color_scheme = "GruvboxDark"
 -- fonts & input handling
 config.font = wezterm.font_with_fallback({
+        { family = "PragmataPro Liga" },
         { family = "Fantasque Sans Mono", weight = "Medium" },
         { family = "Iosevka Term SS07", weight = "Medium" },
         { family = "Nerd Font Symbol Mono"},

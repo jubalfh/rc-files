@@ -1,7 +1,7 @@
 [.local/share/oh-my-zsh]
 update =
         test -d .git || (
-            git clone --no-checkout 'https://github.com/oh-my-zsh/oh-my-zsh.git' '.initial'
+            git clone --no-checkout 'https://github.com/ohmyzsh/ohmyzsh.git' '.initial'
             mv '.initial/.git' '.'
             rmdir '.initial'
             git reset --hard HEAD
@@ -9,7 +9,7 @@ update =
         git pull --rebase
 
 checkout =
-        git clone 'https://github.com/oh-my-zsh/oh-my-zsh.git' 'oh-my-zsh'
+        git clone 'https://github.com/ohmyzsh/ohmyzsh.git' 'oh-my-zsh'
 
 [.tmux/plugins/tpm]
 checkout = git clone 'https://github.com/tmux-plugins/tpm' 'tpm'

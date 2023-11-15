@@ -3,6 +3,50 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	pager = delta
+
+[interactive]
+	diffilter = delta --color-only
+
+[delta "mantis-shrimp-groovy"]
+    #author: https://github.com/2kabhishek
+    dark = true
+    side-by-side = true
+    keep-plus-minus-markers = true
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    file-style = omit
+    zero-style = syntax
+    syntax-theme = gruvbox-dark
+    commit-decoration-style = green box
+    commit-style = yellow bold italic
+    hunk-header-decoration-style = blue box ul
+    hunk-header-file-style = purple ul bold
+    hunk-header-line-number-style = yellow box bold
+    hunk-header-style = file line-number "#574833" bold italic "#a89984"
+    line-numbers = true
+    line-numbers-left-format = "{nm:>1}|"
+    line-numbers-left-style = blue
+    line-numbers-minus-style = bold
+    line-numbers-plus-style = bold
+    line-numbers-right-format = "{np:>1}|"
+    line-numbers-right-style = blue
+    line-numbers-zero-style = white italic
+    minus-emph-style = "#d4be98" bold "#472322"
+    minus-style = syntax bold "#543937"
+    plus-emph-style = "#d4be98" bold "#3d4220"
+    plus-style = syntax bold "#424a3e"
+    whitespace-error-style = purple bold
+
+[delta]
+	features = mantis-shrimp-groovy
+	line-numbers = true
+	navigate = true
+	light = false
+	syntax-theme = gruvbox-dark
 
 [color]
 	diff = always
@@ -13,6 +57,7 @@
 	tool = meld
 
 [diff]
+	colorMoved = default
 	tool = meld
 	compactionHeuristic = true
 

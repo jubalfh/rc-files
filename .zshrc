@@ -1,80 +1,5 @@
-_conf.d() {
-    echo ${XDG_CONFIG_HOME:-~/.config}
-}
-
-_local.d() {
-    echo ${XDG_LOCAL_DIR:-~/.local}
-}
-
 (){
-    # Path to your oh-my-zsh configuration.
-    export ZSH="$(_local.d)/share/oh-my-zsh"
-
-    # Theme settings. Optionally, if you set this to "random",
-    # it'll load a random theme each time that oh-my-zsh is
-    # loaded.
-    ZSH_THEME="sunny"
-
-    # Set to this to use case-sensitive completion
-    # CASE_SENSITIVE="true"
-
-    # Comment this out to disable weekly auto-update checks
-    DISABLE_AUTO_UPDATE="true"
-
-    # Uncomment following line if you want to disable colors in ls
-    # DISABLE_LS_COLORS="true"
-
-    # Uncomment following line if you want to disable autosetting
-    # terminal title.
-    # DISABLE_AUTO_TITLE="true"
-
-    # Uncomment following line if you want red dots to be
-    # displayed while waiting for completion
-    # COMPLETION_WAITING_DOTS="true"
-
-    # Which plugins would you like to load? (plugins can be found
-    # in ~/.oh-my-zsh/plugins/*)
-    # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-    # Example format: plugins=(rails git textmate ruby lighthouse)
-    plugins=(
-        direnv
-        pyenv
-        vi-mode
-        mosh
-        colorize
-        git-flow-avh
-        history-substring-search
-        virtualenv
-        bash_completion
-    )
-
-    path_components=(
-    ~/.cargo/bin
-    ~/.pyenv/{bin,shims}
-    /home/linuxbrew/.linuxbrew/{s,}bin
-    /usr/local/{s,}bin
-    /{s,}bin
-    /usr/{s,}bin
-    /usr/games
-    ~/bin ~/.local/bin ~/.local/share/git
-    )
-
-    # functions
-    cleanup_path() {
-        local dir
-        local -a path
-        for dir in "$@"; do
-            if [[ -d "${dir}" ]]; then
-                path+="${dir}"
-            fi
-        done
-        echo "${(j.:.)path}"
-    }
-    export PATH="$(cleanup_path ${path_components[@]})"
-
-    # apply my preferences:
-
-    # environment variables
+    # general environment variables
     export HISTFILE=~/.zsh_history
     export HISTSIZE=100000
     export SAVEHIST=100000
@@ -91,12 +16,75 @@ _local.d() {
 
     export HOMEBREW_NO_ANALYTICS=1
 
+    export XDG_LOCAL_DIR="${XDG_LOCAL_DIR:-$HOME/.local}"
+    export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+    export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+    
+    # Path to your oh-my-zsh configuration.
+    export ZSH="${XDG_LOCAL_DIR}/share/oh-my-zsh"
+
+
+    # oh-my-zsh settings
+    # theme 
+    ZSH_THEME="sunny"
+
+    # completion
+    # CASE_SENSITIVE="true"
+
+    # auto-update
+    DISABLE_AUTO_UPDATE="true"
+
+    # ls colors
+    # DISABLE_LS_COLORS="true"
+
+    # don't manage terminal title
+    # DISABLE_AUTO_TITLE="true"
+
+    # list of o-m-z plugins, the plugins are sourced from
+    # ${ZSH}/plugins or ${ZSH}/custom/plugins
+    plugins=(
+        direnv
+        pyenv
+        vi-mode
+        # mosh
+        colorize
+        # git-flow-avh
+        history-substring-search
+        virtualenv
+        bash_completion
+    )
+
+    # manage path
+    path_components=(
+        ~/.cargo/bin
+        ~/.pyenv/{bin,shims}
+        /home/linuxbrew/.linuxbrew/{s,}bin
+        /usr/local/{s,}bin
+        /{s,}bin
+        /usr/{s,}bin
+        /usr/games
+        ~/bin ~/.local/bin ~/.local/share/git
+    )
+
+    cleanup_path() {
+        local dir
+        local -a path
+        for dir in "$@"; do
+            if [[ -d "${dir}" ]]; then
+                path+="${dir}"
+            fi
+        done
+        echo "${(j.:.)path}"
+    }
+    export PATH="$(cleanup_path ${path_components[@]})"
+
     # get the oh-my-zsh baseline
     if [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
         source "$ZSH/oh-my-zsh.sh"
     fi
 
-    # options
+    # zsh options
+    
     # history management
     setopt APPEND_HISTORY
     setopt HIST_EXPIRE_DUPS_FIRST
@@ -108,6 +96,7 @@ _local.d() {
     setopt HIST_FIND_NO_DUPS
     setopt INC_APPEND_HISTORY
     setopt SHARE_HISTORY
+
     # varia
     setopt AUTO_CD
     setopt COMBINING_CHARS
@@ -148,12 +137,12 @@ _local.d() {
     [ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
 
     # personality requirements
-    what=$(what-am-i); machine_file="$(_local.d)/lib/dotfiles/${what}/machine"
+    what=$(what-am-i); machine_file="${XDG_LOCAL_DIR}/lib/dotfiles/${what}/machine"
     if [[ -f "${machine_file}" ]]; then
         source "${machine_file}"
     fi
 
-    # and local changes
+    # add local changes
     if [[ -f ~/.zshrc.local ]]; then
         source ~/.zshrc.local
     fi

@@ -1,4 +1,3 @@
-# vim: set filetype=sh.zsh
 # add various windows tools to the path
 if [[ -d "${HOME}/.local/lib/win64" ]]; then
     PATH="${PATH}:${HOME}/.local/lib/win64"
@@ -14,7 +13,7 @@ if [[ -d "${HOME}/scoop/shims" ]]; then
 fi
 
 for _cmd in gvim pbcopy pbpaste; do
-    which ${_cmd}.exe 2>&1 >/dev/null && ${_cmd}() { $0.exe $@ }
+    command -f ${_cmd}.exe 2>&1 >/dev/null && ${_cmd}() { $0.exe "$@" }
 done
 
 # handle ssh-agent forwarding back to windows transparently (as per
@@ -37,3 +36,5 @@ if [[ $ALREADY_RUNNING != "0" ]]; then
     # which then forwards to openssh-ssh-agent on windows
     (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
 fi
+
+# vim: set filetype=sh.zsh:

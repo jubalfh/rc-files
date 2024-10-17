@@ -19,7 +19,10 @@
     export XDG_LOCAL_DIR="${XDG_LOCAL_DIR:-$HOME/.local}"
     export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
     export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-    
+
+    # ls -l date/time output format
+    export TIME_STYLE=long-iso
+
     # Path to your oh-my-zsh configuration.
     export ZSH="${XDG_LOCAL_DIR}/share/oh-my-zsh"
 
@@ -44,6 +47,7 @@
     # ${ZSH}/plugins or ${ZSH}/custom/plugins
     plugins=(
         direnv
+        gitfast
         pyenv
         vi-mode
         # mosh

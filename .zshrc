@@ -88,7 +88,7 @@
     fi
 
     # zsh options
-    
+
     # history management
     setopt APPEND_HISTORY
     setopt HIST_EXPIRE_DUPS_FIRST

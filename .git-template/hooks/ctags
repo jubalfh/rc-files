@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-: ${GIT_DIR:=.git}
-
-trap "rm -f ${GIT_DIR}/tags.$$" EXIT
-ctags --tag-relative -Rf${GIT_DIR}/tags.$$ --exclude=${GIT_DIR}
-mv ${GIT_DIR}/tags.$$ ${GIT_DIR}/tags

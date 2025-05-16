@@ -4,6 +4,9 @@ local _a = wezterm.action
 -- initialize config
 local config = wezterm.config_builder()
 
+-- shell
+config.default_prog = { "zsh", "-l" }
+
 -- key mappings and leader key
 config.leader = { key = "mapped:`", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
@@ -52,45 +55,46 @@ config.mouse_bindings = {
 config.window_close_confirmation = "NeverPrompt"
 config.exit_behavior = "Close"
 config.window_padding = { left = "4px", right = "4px", top = "4px", bottom = "4px" }
-config.window_decorations = "NONE | RESIZE"
+-- config.window_decorations = "NONE | RESIZE"
 config.enable_tab_bar = false
 
 -- color scheme
-config.color_scheme = "GruvboxDark"
+config.color_scheme = "Gruvbox Material (Gogh)"
 
 -- fonts & input handling
 config.font = wezterm.font_with_fallback({
+    -- {
+    --     family = "Iosevka Term",
+    --     weight = "Regular",
+    --     harfbuzz_features = { "dlig=1", "ss07=1" },
+    -- },
+    -- {
+    --     family = "PragmataPro Liga",
+    -- },
     {
-        family = "Iosevka Term",
-        weight = "Regular",
-        harfbuzz_features = { "dlig=1", "ss07=1" },
+        family = "Monaspace Krypton", weight = "Light",
+        harfbuzz_features = {
+            "calt=1", "dlig=1", "liga=1", "ss05=1",
+        }
     },
     {
-        family = "PragmataPro Liga",
+        family = "Fantasque Sans Mono", weight = "Regular",
     },
-    -- {
-    --     family = "Fantasque Sans Mono", weight = "Regular",
-    -- },
-    -- {
-    --     family = "Victor Mono", weight = "Regular",
-    -- },
-    -- {
-    --     family = "Monaspace Argon", weight = "Light",
-    --     harfbuzz_features = {
-    --         "calt=1", "dlig=1", "liga=1", "ss05=1",
-    --     }
-    -- },
+    {
+        family = "Victor Mono", weight = "Regular",
+    },
     {
         family = "Symbols Nerd Font Mono",
     },
 })
+
 config.font_rules = {
     {
         intensity = "Bold",
         italic = true,
         font = wezterm.font({
-            -- family = Monaspace Radon",
-            family = "Fantasque Sans Mono",
+            family = "Monaspace Radon",
+            -- family = "Fantasque Sans Mono",
             weight = "Bold",
             style = "Italic",
         }),
@@ -99,8 +103,8 @@ config.font_rules = {
         intensity = "Half",
         italic = true,
         font = wezterm.font({
-            -- family = Monaspace Radon",
-            family = "Fantasque Sans Mono",
+            family = "Monaspace Radon",
+            -- family = "Fantasque Sans Mono",
             weight = "Medium",
             style = "Italic",
         }),
@@ -109,14 +113,15 @@ config.font_rules = {
         intensity = "Normal",
         italic = true,
         font = wezterm.font({
-            -- family = Monaspace Radon",
-            family = "Fantasque Sans Mono",
+            family = "Monaspace Radon",
+            -- family = "Fantasque Sans Mono",
             weight = "Regular",
             style = "Italic",
         }),
     },
 }
-config.font_size = 12.5
+
+config.font_size = 13.0
 config.freetype_load_target = "Light"
 config.freetype_render_target = "Normal"
 config.freetype_interpreter_version = 40
@@ -132,7 +137,8 @@ config.check_for_updates = false
 config.scrollback_lines = 25000
 config.front_end = "WebGpu"
 -- config.webgpu_power_preference = "HighPerformance"
-config.animation_fps = 15
+-- config.animation_fps = 15
+config.max_fps = 60
 config.enable_scroll_bar = true
 
 return config
